@@ -1,0 +1,55 @@
+extends ./layout/base
+
+block append stylesheets
+    link(rel='stylesheet', href=baseUrl+'css/index.min.css')
+
+block content
+    section#home-slide.primary-background
+        .background
+            ul#scene
+                li.layer.layer-1(data-depth="0.10")
+                    .image
+                li.layer.layer-2(data-depth="0.15")
+                    .image
+                li.layer.layer-3(data-depth="0.20")
+                    .image
+            .overlay
+        .content
+            h1.show-for-sr Matt Rayner
+            a(heref=baseUrl)
+                img(src=baseUrl+'assets/images/logo-full.svg', alt='Matt Rayner')
+            p Full-stack ployglot tech lead in London
+        | <svg class="arrows"><path class="a1" d="M0 0 L30 32 L60 0"></path><path class="a2" d="M0 20 L30 52 L60 20"></path><path class="a3" d="M0 40 L30 72 L60 40"></path></svg>
+    section#about-me.row-margin
+        .row
+            .large-10.large-offset-1.columns
+                h2 About Me
+        .row
+            .large-10.large-offset-1.columns
+                img.rounded-image.margin-(src='https://s.gravatar.com/avatar/654c203f4d1c78392370aeb8325bbb58?s=600', align='left')
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit vulputate cursus. Nam vel nulla ultrices erat venenatis facilisis. Quisque ultricies libero arcu, a maximus mauris consequat cursus. Sed cursus ornare lorem in pulvinar. Quisque hendrerit malesuada lectus eu fermentum. Nulla viverra ante quis magna dictum, ut interdum mi semper. Aliquam a elit a quam euismod pellentesque at sit amet odio.
+                p Vestibulum lobortis sollicitudin porta. Sed ullamcorper blandit nunc ac consequat. Vestibulum vel enim eu lectus commodo hendrerit ac feugiat nisi. Nam suscipit libero sem, a tristique ex vulputate et. Ut auctor urna ac nunc iaculis sagittis quis id ipsum. Maecenas congue neque ligula, ac ultrices nisl laoreet sit amet. Morbi faucibus fermentum nisl, sed vestibulum massa lobortis eget.
+    section#skills.row-margin
+        .row
+            .large-10.large-offset-1.columns
+                h2 Skills
+    section#case-studies.row-margin
+        .row
+            .large-10.large-offset-1.columns
+                h2 Case Studies
+        .row
+            .large-4.medium-6.small-12.columns
+                img(src='http://placehold.it/500x200')
+            .large-4.medium-6.small-12.columns
+                img(src='http://placehold.it/500x200')
+            .large-4.medium-6.small-12.columns
+                img(src='http://placehold.it/500x200')
+            .medium-6.small-12.columns.show-for-medium-only
+                img(src='http://placehold.it/500x200')
+    section#contact.row-margin
+        .row
+            .large-10.large-offset-1.columns
+                h2 Get in Touch
+
+block append scripts
+    script(src=baseUrl+'js/index.min.js')

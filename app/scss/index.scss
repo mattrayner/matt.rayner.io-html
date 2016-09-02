@@ -1,0 +1,141 @@
+@import "variables";
+@import "mixins";
+
+@include colorMenu(white, white, white, black, white, $primary-color);
+
+section#home-slide {
+  background: $primary-color;
+  background-size: cover;
+
+  overflow: hidden;
+
+  max-height: calc(80%);
+
+  position: relative;
+
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    margin-left: -40%;
+    text-align: center;
+    z-index: 10;
+    color: white;
+
+    p {
+      font-size: 24.2px;
+      padding: 0;
+      margin: 0;
+      line-height: 1;
+      margin-top: -37px;
+      text-transform: lowercase;
+    }
+  }
+
+  .background {
+    height: 100%;
+    position: relative;
+
+    ul#scene {
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+
+      li.layer {
+        width: 100%;
+        height: 100%;
+
+        .image {
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          background-size: cover;
+          bottom: 0;
+          position: absolute;
+          width: 110%;
+          left: -5%;
+          top: -5%;
+        }
+
+        &.layer-1 .image { background-image: url(../assets/images/tech-layer-1.svg) }
+        &.layer-2 .image { background-image: url(../assets/images/tech-layer-2.svg) }
+        &.layer-3 .image { background-image: url(../assets/images/tech-layer-3.svg) }
+
+      }
+    }
+
+    .overlay {
+      background: transparent; /* For browsers that do not support gradients */
+      background: -webkit-radial-gradient(rgba(229,0,125,0), rgba(229,0,125,1)); /* Safari 5.1 to 6.0 */
+      background: -o-radial-gradient(rgba(229,0,125,0), rgba(229,0,125,1)); /* For Opera 11.6 to 12.0 */
+      background: -moz-radial-gradient(rgba(229,0,125,0), rgba(229,0,125,1)); /* For Firefox 3.6 to 15 */
+      background: radial-gradient(rgba(229,0,125,0), rgba(229,0,125,1)); /* Standard syntax (must be last) */
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .arrows {
+    width: 60px;
+    height: 72px;
+    position: absolute;
+    left: 50%;
+    margin-left: -30px;
+    bottom: 20px;
+  }
+
+  .arrows path {
+    stroke: white;
+    fill: transparent;
+    stroke-width: 1px;
+    animation: arrow 2s infinite;
+    -webkit-animation: arrow 2s infinite;
+  }
+
+  @keyframes arrow
+  {
+    0% {opacity:0}
+    40% {opacity:1}
+    80% {opacity:0}
+    100% {opacity:0}
+  }
+
+  @-webkit-keyframes arrow /*Safari and Chrome*/
+  {
+    0% {opacity:0}
+    40% {opacity:1}
+    80% {opacity:0}
+    100% {opacity:0}
+  }
+
+  .arrows path.a1 {
+    animation-delay:-1s;
+    -webkit-animation-delay:-1s; /* Safari 和 Chrome */
+  }
+
+  .arrows path.a2 {
+    animation-delay:-0.5s;
+    -webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+  }
+
+  .arrows path.a3 {
+    animation-delay:0s;
+    -webkit-animation-delay:0s; /* Safari 和 Chrome */
+  }
+}
+
+section#about-me {
+  @include addRowMargin();
+
+  img {
+    margin-right: 2em;
+  }
+}
+
+section#case-studies {
+  @include addRowMargin()
+}

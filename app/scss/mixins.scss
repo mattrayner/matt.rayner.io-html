@@ -1,0 +1,58 @@
+@mixin colorMenu($icon-color, $icon-color--hover, $icon-color--active, $menu-overlay-color, $menu-text-color, $menu-text-color--hover) {
+  .toggle-menu {
+    color: $icon-color;
+
+    svg {
+      rect, polygon {
+        fill: $icon-color;
+      }
+    }
+
+    &:hover {
+      color: $icon-color--hover;
+
+      svg {
+        rect, polygon {
+          fill: $icon-color--hover;
+        }
+      }
+    }
+  }
+
+  .overlay-menu {
+    background: $menu-overlay-color;
+
+    a {
+      color: $menu-text-color;
+
+      &:hover {
+        color: $menu-text-color--hover;
+      }
+    }
+
+    &.is-open ~ .toggle-menu {
+      color: $icon-color--active;
+
+      svg {
+        rect, polygon {
+          fill: $icon-color--active;
+        }
+      }
+    }
+  }
+}
+
+@mixin addRowMargin($margin-top-bottom-size:4em, $margin-left-right-size:auto) {
+  margin: $margin-top-bottom-size $margin-left-right-size;
+}
+@mixin addRowPadding($padding-top-bottom-size:4em, $padding-left-right-size:0) {
+  padding: $padding-top-bottom-size $padding-left-right-size;
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}

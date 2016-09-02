@@ -1,0 +1,91 @@
+@import '../../node_modules/foundation-sites/scss/foundation';
+
+@import "_variables.scss";
+@import "mixins";
+
+#bd-logo {
+    display: block;
+    width: 10rem;
+    height: 10rem;
+
+    position: absolute;
+
+    top: 1rem;
+    left: 1rem;
+    z-index: 6000;
+
+    svg {
+        display: block;
+        width: 10rem;
+        height: 10rem;
+
+        transition-duration: $transition-time--long;
+
+        path { @include transition(fill $transition-time ease-out); }
+    }
+}
+@include breakpoint(small only) {
+    #bd-logo, #bd-logo svg{
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+.badge{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 180px;
+    margin-top: -90px;
+    margin-left: -90px;
+
+    border-radius: 50%;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+h1.page-title {
+    font-weight: bold;
+
+    text-transform: uppercase
+}
+
+.client-name{
+    white-space: nowrap;
+}
+
+.full-width-overlay{
+    cursor: pointer;
+}
+
+.left-arrow{
+    background: url(../assets/images/work/leftarrow.svg) no-repeat;
+    background-size: contain;
+    margin-left: 20px;
+}
+.right-arrow{
+    background: url(../assets/images/work/rightarrow.svg) no-repeat;
+    background-size: contain;
+    margin-right: 20px;
+}
+
+.hover-bg-pink{ //GAP
+    transition-duration: 1s;
+    &:hover { background-color: #ff0092; }
+}
+.hover-bg-light-blue{
+    transition-duration: 1s;
+    &:hover { background-color: #65dcfc; }
+}
+.hover-bg-red{
+    transition-duration: 1s;
+    &:hover { background-color: #f60001; }
+}
+.hover-bg-yellow{
+    transition-duration: 1s;
+    &:hover { background-color: #f6c13d; }
+}
+.hover-bg-purple{
+    transition-duration: 1s;
+    &:hover { background-color: #a92ff6; }
+}

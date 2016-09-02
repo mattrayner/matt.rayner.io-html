@@ -1,0 +1,24 @@
+extends ./layout/content
+
+block variables
+    - var title = 'Matt Rayner | Oops, Page Not Found'
+    - var keywords = 'bd,network,integrated,agency,404'
+    - //var description = 'BD was created in 1990 by two ex-clients who demanded better. Today our vision remains the same. From our offices in Shoreditch, Melbourne and Sydney, our team of over 100 talented, lovely, hard-working, individuals continue to create inspirational ideas and turn them into reality for our clients.'
+    - var socialTitle = 'Matt Rayner - Page Not Found'
+    - //var socialDescription = 'SOCIAL BD created an out of home experiencial campaign for Cadberys to launch a brand recognition campaign'
+    - //var facebookImage = baseUrl+'assets/images/social/house-of-mouth-fb.jpg'
+    - //var twitterImage = baseUrl+'assets/images/social/house-of-mouth-tw.jpg'
+
+block append stylesheets
+    link(rel='stylesheet', href=baseUrl+'css/404.min.css')
+
+block page-content
+    main#mainContent
+        #background-image
+        #container
+            .container-item.container-item--fixed
+                h1.page-title OOPS, PAGE NOT FOUND
+                p.page-content= 'THERE\'S NO PLACE LIKE '
+                    a(href=baseUrl) HOME
+block append scripts
+    script(src=baseUrl+'js/index.min.js')
