@@ -10,14 +10,4 @@ $(document).ready(    ->
     $('#home-slide .content').css({'margin-top': 0-(contentHeight * 0.5)})
   )
 
-  $(window).bind("load", ->
-    Waypoint({
-      element: $('section#about-me img.rounded-image').first(),
-      handler: (direction)->
-        alert("50% from the top - #{direction}")
-      ,
-      offset: '10%'
-    })
-  )
-
 )

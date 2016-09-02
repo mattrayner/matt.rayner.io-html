@@ -2,70 +2,121 @@
 
 var gulp = require('gulp'),
     coffee = require('gulp-coffee'),
+    gutil = require('gulp-util'),
     coffeelint = require('gulp-coffeelint'),
     sass = require('gulp-sass'),
     cssmin = require('gulp-cssmin'),
     rename = require('gulp-rename'),
+    concat = require('gulp-concat'),
     pug = require('gulp-pug'),
     uglify = require('gulp-uglify'),
     pump = require('pump'),
     mocha = require('gulp-mocha'),
-    modernizr = require('gulp-modernizr');
+    data = require('gulp-data');
+
+var paths = {
+    scripts: './app/coffee/**/*.coffee',
+    styles: './app/scss/**/*.scss',
+    pugs: ['./app/pug/**/*.pug', '!./app/pug/layout/**/*.pug']
+};
 
 gulp.task('default', function() {
     gulp.src('test.js', {read: false})
     // gulp-mocha needs filepaths so you can't have any plugins before it
-        .pipe(mocha({reporter: 'nyan'}))
+        .pipe(mocha({reporter: 'nyan'}));
+
+    gulp.start('lint', 'coffee', 'sass', 'cssmin', 'pug:local', 'uglify');
 });
 
 gulp.task('coffee', function() {
-    gulp.src('./src/*.coffee')
+    gulp.src(paths.scripts)
         .pipe(coffee({bare: true}).on('error', gutil.log))
-        .pipe(gulp.dest('./public/'));
+        .pipe(gulp.dest('./app/coffee/compiled'));
 });
 
 gulp.task('lint', function () {
-    gulp.src('./src/*.coffee')
+    gulp.src(paths.scripts)
         .pipe(coffeelint())
         .pipe(coffeelint.reporter())
 });
 
 gulp.task('sass', function () {
-    return gulp.src('./sass/**/*.scss')
+    return gulp.src('./app/scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./css'));
+        .pipe(gulp.dest('./app/scss/compiled'));
 });
 
-gulp.task('sass:watch', function () {
-    gulp.watch('./sass/**/*.scss', ['sass']);
-});
-
-gulp.task('default', function () {
-    gulp.src('src/**/*.css')
+gulp.task('cssmin', function () {
+    gulp.src(['./app/scss/compiled/**/*.css', '!./app/scss/compiled/**/*.min.css'])
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('./dist/css/'));
 });
 
-gulp.task('views', function buildHTML() {
-    return gulp.src('views/*.pug')
-        .pipe(pug({
-            // Your options in here.
+gulp.task('pug:local', function buildHTML() {
+    return gulp.src(paths.pugs)
+        .pipe(data({
+            debug: false,
+            baseUrl: '/',
+            isLive: false
         }))
+        .pipe(pug())
+        .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('compress', function (cb) {
+gulp.task('pug:dev', function buildHTML() {
+    return gulp.src(paths.pugs)
+        .pipe(data({
+            debug: false,
+            baseUrl: 'https://dev.matt.rayner.io/',
+            isLive: false
+        }))
+        .pipe(pug())
+        .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('pug:live', function buildHTML() {
+    return gulp.src(paths.pugs)
+        .pipe(data({
+            debug: false,
+            baseUrl: 'https://matt.rayner.io/',
+            isLive: true
+        }))
+        .pipe(pug())
+        .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('uglify:coffee', function (cb) {
     pump([
-            gulp.src('lib/*.js'),
+            gulp.src('./app/coffee/compiled/**/*.js'),
             uglify(),
-            gulp.dest('dist')
+            rename({suffix: '.min'}),
+            gulp.dest('./dist/js/')
         ],
         cb
     );
 });
 
-gulp.task('modernizr', function() {
-    gulp.src('./js/*.js')
-        .pipe(modernizr())
-        .pipe(gulp.dest("build/"))
+gulp.task('uglify:plugins', function (cb) {
+    pump([
+            gulp.src(['./app/vendor/modernizr/modernizr.min.js', './node_modules/foundation-sites/vendor/jquery/dist/jquery.min.js', './app/vendor/jquery.parallax.js', './node_modules/foundation-sites/dist/foundation.min.js']),
+            concat('concat.js'),
+            gulp.dest('./dist/js/'),
+            rename('plugins.min.js'),
+            uglify(),
+            gulp.dest('./dist/js/')
+        ],
+        cb
+    );
+});
+
+gulp.task('uglify', function (cb) {
+    gulp.run('uglify:coffee', 'uglify:plugins');
+});
+
+// Rerun the task when a file changes
+gulp.task('watch', function() {
+    gulp.watch(paths.scripts, ['lint', 'coffee', 'uglify']);
+    gulp.watch(paths.styles, ['sass', 'cssmin']);
+    gulp.watch(paths.pugs, ['pug:local']);
 });
