@@ -28,6 +28,14 @@ gulp.task('default', function() {
     gulp.start('lint', 'coffee', 'sass', 'cssmin', 'pug:local', 'uglify');
 });
 
+gulp.task('build:live', function() {
+    gulp.start('lint', 'coffee', 'sass', 'cssmin', 'pug:live', 'uglify');
+});
+
+gulp.task('build:dev', function() {
+    gulp.start('lint', 'coffee', 'sass', 'cssmin', 'pug:dev', 'uglify');
+});
+
 gulp.task('coffee', function() {
     gulp.src(paths.scripts)
         .pipe(coffee({bare: true}).on('error', gutil.log))

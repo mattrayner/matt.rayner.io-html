@@ -12,16 +12,11 @@ module.exports = function (shipit) {
             shallowClone: true
         },
         live: {
-            servers: 'deploy@matt.rayner.io',
-            env: 'live'
+            servers: 'deploy@matt.rayner.io'
         }
     });
 
-    shipit.task('grunt', function(){
-        return shipit.remote('grunt build:'+shipit.environment)
-    });
-
-    shipit.on('deploy:update', function(){
-        shipit.run('grunt')
+    shipit.on('deploy', function(){
+        shipit.start('gulp build:'+shipit.environment)
     })
 };
