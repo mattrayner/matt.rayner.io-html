@@ -107,7 +107,7 @@ gulp.task('uglify:coffee', function (cb) {
 
 gulp.task('uglify:plugins', function (cb) {
     pump([
-            gulp.src(['./app/vendor/modernizr/modernizr.min.js', './node_modules/foundation-sites/vendor/jquery/dist/jquery.min.js', './app/vendor/jquery.parallax.js', './node_modules/foundation-sites/dist/foundation.min.js']),
+            gulp.src(['./app/vendor/modernizr/modernizr.min.js', './node_modules/foundation-sites/vendor/jquery/dist/jquery.min.js', './app/vendor/jquery.parallax.js', './node_modules/foundation-sites/dist/foundation.min.js', './node_modules/waypoints/lib/noframework.waypoints.js']),
             concat('concat.js'),
             gulp.dest('./dist/js/'),
             rename('plugins.min.js'),
