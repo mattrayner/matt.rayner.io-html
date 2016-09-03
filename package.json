@@ -13,10 +13,9 @@
   "author": "BD Network",
   "license": "ISC",
   "homepage": "https://bitbucket.org/bd-digital/bd-html-brand-site#readme",
-  "dependencies": {
-    "foundation-sites": "^6.2.3"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "foundation-sites": "^6.2.3",
     "gulp": "^3.9.1",
     "gulp-coffee": "^2.3.2",
     "gulp-coffeelint": "^0.6.0",
