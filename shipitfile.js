@@ -28,5 +28,9 @@ module.exports = function (shipit) {
 
     shipit.on('updated', function(){
         return shipit.start('grunt:build');
-    })
+    });
+
+    shipit.on('deployed', function(){
+        return shipit.remote('cd '+shipit.releasePath+' && gulp && sleep 5');
+    });
 };

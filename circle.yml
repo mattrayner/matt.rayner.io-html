@@ -1,0 +1,22 @@
+## Customize the test machine
+machine:
+  timezone:
+    Europe/London # Set the timezone
+
+  node:
+      version: 0.10.22
+
+dependencies:
+  override:
+    - npm install --dev
+    - npm insall gulp-cli shipit-cli shipit-deploy
+
+test:
+  override:
+    - gulp
+
+deployment:
+  live:
+    branch: master
+    commands:
+      - shipit live deploy
