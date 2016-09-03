@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
     pug = require('gulp-pug'),
+    puglint = require('gulp-pug-lint'),
     uglify = require('gulp-uglify'),
     pump = require('pump'),
     mocha = require('gulp-mocha'),
@@ -55,6 +56,14 @@ gulp.task('lint', function () {
     gulp.src(paths.scripts)
         .pipe(coffeelint())
         .pipe(coffeelint.reporter())
+
+    return gulp.src(paths.pugs)
+        .pipe(data({
+            debug: false,
+            baseUrl: '/',
+            isLive: false
+        }))
+        .pipe(puglint());
 });
 
 gulp.task('sass', function () {
@@ -82,6 +91,7 @@ gulp.task('pug:local', function buildHTML() {
             baseUrl: '/',
             isLive: false
         }))
+        .pipe(puglint())
         .pipe(pug())
         .pipe(gulp.dest('./dist'));
 });
@@ -93,6 +103,7 @@ gulp.task('pug:dev', function buildHTML() {
             baseUrl: 'https://dev.matt.rayner.io/',
             isLive: false
         }))
+        .pipe(puglint())
         .pipe(pug())
         .pipe(gulp.dest('./dist'));
 });
@@ -104,6 +115,7 @@ gulp.task('pug:live', function buildHTML() {
             baseUrl: 'https://matt.rayner.io/',
             isLive: true
         }))
+        .pipe(puglint())
         .pipe(pug())
         .pipe(gulp.dest('./dist'));
 });
