@@ -1,7 +1,7 @@
 {
   "name": "matt.rayner.io-html",
   "version": "1.0.0",
-  "description": "",
+  "description": "A gulp based project for matt.rayner.io that compiles down to flat HTML.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "gulp"
@@ -28,6 +28,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
     "pump": "^1.0.1",
     "shipit-cli": "^1.4.1",
     "shipit-deploy": "^2.2.0",
