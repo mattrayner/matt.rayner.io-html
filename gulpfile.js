@@ -25,15 +25,15 @@ gulp.task('default', function() {
     // gulp-mocha needs filepaths so you can't have any plugins before it
         .pipe(mocha({reporter: 'nyan'}));
 
-    gulp.start('lint', 'coffee', 'sass', 'cssmin', 'pug:local', 'uglify');
+    gulp.start('lint', 'coffee', 'sass', 'pug:local', 'uglify');
 });
 
 gulp.task('build:live', function() {
-    gulp.start('lint', 'coffee', 'sass', 'cssmin', 'pug:live', 'uglify');
+    gulp.start('lint', 'coffee', 'sass', 'pug:live', 'uglify');
 });
 
 gulp.task('build:dev', function() {
-    gulp.start('lint', 'coffee', 'sass', 'cssmin', 'pug:dev', 'uglify');
+    gulp.start('lint', 'coffee', 'sass', 'pug:dev', 'uglify');
 });
 
 gulp.task('coffee', function() {
@@ -49,9 +49,14 @@ gulp.task('lint', function () {
 });
 
 gulp.task('sass', function () {
-    return gulp.src('./app/scss/**/*.scss')
+    gulp.src('./app/scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./app/scss/compiled'));
+
+    return gulp.src(['./app/scss/compiled/**/*.css', '!./app/scss/compiled/**/*.min.css'])
+        .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('cssmin', function () {
