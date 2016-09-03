@@ -2,9 +2,9 @@
   "name": "matt.rayner.io-html",
   "version": "1.0.0",
   "description": "",
-  "main": "Gruntfile.js",
+  "main": "gulpfile.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "gulp"
   },
   "repository": {
     "type": "git",
