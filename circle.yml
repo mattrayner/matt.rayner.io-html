@@ -8,8 +8,8 @@ machine:
 
 dependencies:
   override:
-    - apt-get install libsass
     - npm install
+    - npm install -g node-sass
     - npm install -g gulp-cli
     - npm install -g shipit-cli
 
