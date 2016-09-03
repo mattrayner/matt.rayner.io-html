@@ -9,6 +9,8 @@ machine:
 dependencies:
   override:
     - npm install
+    - npm install -g gulp-cli
+    - npm install -g shipit-cli
 
 test:
   override:
