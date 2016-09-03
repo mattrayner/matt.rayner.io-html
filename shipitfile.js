@@ -23,7 +23,7 @@ module.exports = function (shipit) {
 
     shipit.blTask('grunt:build', ['npm:install'], function(){
         shipit.log('Attempting grunt:build');
-        return shipit.remote('cd '+shipit.releasePath+' && gulp');
+        return shipit.remote('cd '+shipit.releasePath+' && gulp && sleep 5');
     });
 
     shipit.on('updated', function(){

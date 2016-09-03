@@ -25,21 +25,30 @@ gulp.task('default', function() {
     // gulp-mocha needs filepaths so you can't have any plugins before it
         .pipe(mocha({reporter: 'nyan'}));
 
-    gulp.start('lint', 'coffee', 'sass', 'pug:local', 'uglify');
+    gulp.start('lint', 'coffee', 'sass', 'pug:local', 'uglify:plugins');
 });
 
 gulp.task('build:live', function() {
-    gulp.start('lint', 'coffee', 'sass', 'pug:live', 'uglify');
+    gulp.start('lint', 'coffee', 'sass', 'pug:live', 'uglify:plugins');
 });
 
 gulp.task('build:dev', function() {
-    gulp.start('lint', 'coffee', 'sass', 'pug:dev', 'uglify');
+    gulp.start('lint', 'coffee', 'sass', 'pug:dev', 'uglify:plugins');
 });
 
-gulp.task('coffee', function() {
+gulp.task('coffee', function(cb) {
     gulp.src(paths.scripts)
         .pipe(coffee({bare: true}).on('error', gutil.log))
         .pipe(gulp.dest('./app/coffee/compiled'));
+
+    pump([
+            gulp.src('./app/coffee/compiled/**/*.js'),
+            uglify(),
+            rename({suffix: '.min'}),
+            gulp.dest('./dist/js/')
+        ],
+        cb
+    );
 });
 
 gulp.task('lint', function () {
@@ -99,17 +108,6 @@ gulp.task('pug:live', function buildHTML() {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('uglify:coffee', function (cb) {
-    pump([
-            gulp.src('./app/coffee/compiled/**/*.js'),
-            uglify(),
-            rename({suffix: '.min'}),
-            gulp.dest('./dist/js/')
-        ],
-        cb
-    );
-});
-
 gulp.task('uglify:plugins', function (cb) {
     pump([
             gulp.src(['./app/vendor/modernizr/modernizr.min.js', './node_modules/foundation-sites/vendor/jquery/dist/jquery.min.js', './app/vendor/jquery.parallax.js', './node_modules/foundation-sites/dist/foundation.min.js', './node_modules/waypoints/lib/noframework.waypoints.js']),
@@ -121,10 +119,6 @@ gulp.task('uglify:plugins', function (cb) {
         ],
         cb
     );
-});
-
-gulp.task('uglify', function (cb) {
-    gulp.run('uglify:coffee', 'uglify:plugins');
 });
 
 // Rerun the task when a file changes
