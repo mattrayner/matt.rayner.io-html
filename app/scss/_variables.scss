@@ -1,10 +1,10 @@
-// Navigation specific variables
-$nav_logo--color: #000;
-$nav_logo--color--hover: lighten($nav_logo--color, 30%);
+$primary-color: rgb(229,0,125);
+$secondary-color: rgb(0,158,227);
 
-$nav_icon--color: $nav_logo--color;
-$nav_icon--color--hover: $nav_logo--color--hover;
-$nav_icon--color--active: lighten($nav_logo--color, 100%);
+// Navigation specific variables
+$nav_icon--color: #000;
+$nav_icon--color--hover: lighten($nav_icon--color, 30%);
+$nav_icon--color--active: lighten($nav_icon--color, 100%);
 
 $nav_overlay--color: rgba(51,51,51,0.6);
 $nav_link--color: #fff;
@@ -16,8 +16,10 @@ $nav_link--border: none;
 
 $transition-time: 0.2s;
 $transition-time--long: 0.4s;
-
-$primary-color: rgb(229,0,125);
-$secondary-color: rgb(0,158,227);
+$transition-time--extra-long: 2s;
 
 $row-width: rem-calc(100%);
+
+// Transition variables
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$ease-in-out-quad: cubic-bezier(0.645, 0.045, 0.355, 1);

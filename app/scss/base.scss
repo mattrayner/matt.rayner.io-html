@@ -1,12 +1,11 @@
 @import '../../node_modules/foundation-sites/scss/foundation';
-
 @include foundation-global-styles;
 
 @import 'https://fonts.googleapis.com/css?family=Lato:300,400';
 
 // This code overwrites any variables set in the Foundation settings scss file
 $body-font-family: 'Lato', sans-serif;
-$header-font-family: 'Lato', cursive;
+$header-font-family: 'Lato', sans-serif;
 $font-family-sans-serif: 'Lato', sans-serif;
 
 //@include foundation-grid;
@@ -21,11 +20,11 @@ $font-family-sans-serif: 'Lato', sans-serif;
 //@include foundation-button-group;
 //@include foundation-callout;
 //@include foundation-close-button;
-@include foundation-menu;
+//@include foundation-menu;
 //@include foundation-menu-icon;
-@include foundation-drilldown-menu;
-@include foundation-dropdown;
-@include foundation-dropdown-menu;
+//@include foundation-drilldown-menu;
+//@include foundation-dropdown;
+//@include foundation-dropdown-menu;
 //@include foundation-flex-video;
 //@include foundation-label;
 //@include foundation-media-object;
@@ -50,13 +49,22 @@ $font-family-sans-serif: 'Lato', sans-serif;
 @import '_variables.scss';
 @import 'mixins';
 
-@import 'vplayer';
-
 body{
   font-family: 'Lato', sans-serif;
   font-weight: 300;
 
-  strong, bold, h1, h2, h3 { font-weight: 400; }
+  strong, b, h1, h2, h3 { font-weight: 400; }
+
+  a {
+    color: $primary-color;
+    font-weight: 400;
+
+    &:hover, &:active, &:focus {
+      color: $primary-color;
+      font-weight: 400;
+      text-decoration: underline;
+    }
+  }
 }
 
 h2 { border-bottom: 1px solid lighten($primary-color, 50%); margin-bottom: 1em; }
@@ -69,21 +77,24 @@ img, object, embed {
 .primary-background { background: $primary-color; }
 .secondary-background { background: $secondary-color; }
 
-@keyframes border-pulsate {
+@keyframes border-fade {
   0%   { border-color: $primary-color; }
   50%  { border-color: $secondary-color; }
   100% { border-color: $primary-color; }
 }
 
+.border-fade {
+  border: rem-calc(2px) solid $primary-color;
+  animation: border-fade 10s infinite;
+}
+
 .rounded-image {
+  border-radius: 50%;
+}
+
+.about-me-image {
   width: rem-calc(200px);
   height: rem-calc(200px);
-
-  border-radius: 50%;
-
-  border: rem-calc(2px) solid $primary-color;
-
-  animation: border-pulsate 10s infinite;
 }
 
 #footer{
@@ -106,19 +117,6 @@ img, object, embed {
     padding: 0 10px;
     margin: 6px auto;
   }
-
-  .attach-left{ float: left }
-  .attach-right{ float: right }
-
-  i.showreel-icon {
-    display: inline-block;
-    width: 0.7rem;
-    height: 0.9rem;
-    margin-left: .2rem;
-    background: url(../assets/images/showreel-play.svg) -2px -1px no-repeat;
-  }
-
-  &:after{ clear: both; }
 }
 
 // SCSS For Overlay Menu - based on http://zurb.com/building-blocks/overlay-navigation-menu
@@ -128,7 +126,6 @@ img, object, embed {
   color: $nav_icon--color;
   top: 1rem;
   right: 1rem;
-  transition: all 0.4s ease-in-out;
   padding: 0;
   margin: 0;
   line-height: 1;
@@ -170,7 +167,8 @@ img, object, embed {
   left: 0;
   bottom: 0;
   right: 0;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   margin:0;
   padding: 5rem 0 0;
   opacity: 0;
@@ -178,12 +176,8 @@ img, object, embed {
   background: $nav_overlay--color;
   text-align: center;
   text-transform: uppercase;
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
-  transform: translateX(-100%);
-  @include transition(all $transition-time--long cubic-bezier(1.000, 0.200, 0.440, 0.985));
+  //@include transform(translateX(-100%));
+  @include transition(all $transition-time cubic-bezier(1.000, 0.200, 0.440, 0.985));
 
   overflow-y: scroll;
 
@@ -240,57 +234,6 @@ img, object, embed {
   margin-bottom: 0;
 }
 
-#vplayer-close-btn{
-  background: url(../assets/images/close-icon.png) !important;
-}
-#vplayer-modal{
-  background: url(../assets/images/ajax-loader.gif) center no-repeat #000 !important;
-}
-
-iframe {
-  width: 100%;
-  height: 250px;
-
-  @include breakpoint(medium) {
-    height: 662px;
-  }
-}
-
 /* Global font styles */
-.light{ font-weight: lighter; }
-.bold{ font-weight: bold; }
 .color--white{ color: #ffffff; }
 .uppercase{ text-transform: uppercase; }
-
-/* Global grid overwrite styles */
-.no-lr-pad{
-  padding-left: 0;
-  padding-right: 0;
-}
-.row.no-lr-margin{ // if no .row, the default margins take effect.. [this is less specific]
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.no-bottom-margin{ margin-bottom: 0; }
-
-.section-padding{
-  padding: 60px 0;
-
-  p:last-child{
-    margin-bottom: 0;
-  }
-}
-.small-section-padding{  padding: 10px 0; }
-
-.full-width-image{
-  background-position: center center;
-}
-
-.background--grey-blue{
-  background-color: #556f88;
-}
-
-.row-margin {
-  @include addRowMargin()
-}

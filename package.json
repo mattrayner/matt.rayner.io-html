@@ -1,6 +1,6 @@
 {
   "name": "matt.rayner.io-html",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A gulp based project for matt.rayner.io that compiles down to flat HTML.",
   "main": "gulpfile.js",
   "scripts": {
@@ -8,11 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/bd-digital/bd-html-brand-site.git"
+    "url": "git@github.com:mattrayner/matt.rayner.io-html.git"
   },
-  "author": "BD Network",
-  "license": "ISC",
-  "homepage": "https://bitbucket.org/bd-digital/bd-html-brand-site#readme",
+  "author": "Matthew Rayner",
+  "license": "MIT",
+  "homepage": "https://github.com/mattrayner/matt.rayner.io-html",
   "dependencies": {},
   "devDependencies": {
     "foundation-sites": "^6.2.3",

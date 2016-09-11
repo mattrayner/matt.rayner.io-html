@@ -56,3 +56,11 @@
   -o-transition: $args;
   transition: $args;
 }
+
+@mixin transform($args...) {
+  -webkit-transform: $args;
+  -ms-transform: $args;
+  -moz-transform: $args;
+  -o-transform: $args;
+  transform: $args;
+}

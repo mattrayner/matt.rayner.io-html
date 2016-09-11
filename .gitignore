@@ -50,9 +50,6 @@ sftpCache.json
 app/coffee/compiled
 app/scss/compiled
 
-# Ignore compiled Modernizr JS files
-app/vendor/modernizr/**/*
-
 # Ignore output folder
 dist/**/*.js
 dist/**/*.html

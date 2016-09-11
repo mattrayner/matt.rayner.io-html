@@ -37,27 +37,20 @@ gulp.task('build:dev', function() {
     gulp.start('lint', 'coffee', 'sass', 'pug:dev', 'uglify:plugins');
 });
 
-gulp.task('coffee', function(cb) {
-    gulp.src(paths.scripts)
+gulp.task('coffee', function() {
+    return gulp.src(paths.scripts)
         .pipe(coffee({bare: true}).on('error', gutil.log))
-        .pipe(gulp.dest('./app/coffee/compiled'));
-
-    pump([
-            gulp.src('./app/coffee/compiled/**/*.js'),
-            uglify(),
-            rename({suffix: '.min'}),
-            gulp.dest('./dist/js/')
-        ],
-        cb
-    );
+        .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./dist/js/'));
 });
 
 gulp.task('lint', function () {
     gulp.src(paths.scripts)
         .pipe(coffeelint())
-        .pipe(coffeelint.reporter())
+        .pipe(coffeelint.reporter());
 
-    return gulp.src(paths.pugs)
+    return gulp.src(paths.pugs[0])
         .pipe(data({
             debug: false,
             baseUrl: '/',
@@ -67,18 +60,8 @@ gulp.task('lint', function () {
 });
 
 gulp.task('sass', function () {
-    gulp.src('./app/scss/**/*.scss')
+    return gulp.src(paths.styles)
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./app/scss/compiled'));
-
-    return gulp.src(['./app/scss/compiled/**/*.css', '!./app/scss/compiled/**/*.min.css'])
-        .pipe(cssmin())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./dist/css/'));
-});
-
-gulp.task('cssmin', function () {
-    gulp.src(['./app/scss/compiled/**/*.css', '!./app/scss/compiled/**/*.min.css'])
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('./dist/css/'));
@@ -122,9 +105,8 @@ gulp.task('pug:live', function buildHTML() {
 
 gulp.task('uglify:plugins', function (cb) {
     pump([
-            gulp.src(['./app/vendor/modernizr/modernizr.min.js', './node_modules/foundation-sites/vendor/jquery/dist/jquery.min.js', './app/vendor/jquery.parallax.js', './node_modules/foundation-sites/dist/foundation.min.js', './node_modules/waypoints/lib/noframework.waypoints.js']),
+            gulp.src(['./node_modules/foundation-sites/vendor/jquery/dist/jquery.min.js', './app/vendor/jquery.parallax.js', './node_modules/foundation-sites/dist/foundation.js', './node_modules/foundation-sites/dist/plugins/foundation.util.motion.js', './node_modules/foundation-sites/dist/plugins/foundation.util.triggers.js', './node_modules/foundation-sites/dist/plugins/foundation.toggler.js']),
             concat('concat.js'),
-            gulp.dest('./dist/js/'),
             rename('plugins.min.js'),
             uglify(),
             gulp.dest('./dist/js/')
@@ -135,7 +117,5 @@ gulp.task('uglify:plugins', function (cb) {
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-    gulp.watch(paths.scripts, ['lint', 'coffee', 'uglify']);
-    gulp.watch(paths.styles, ['sass', 'cssmin']);
-    gulp.watch(paths.pugs, ['pug:local']);
+    gulp.watch([paths.scripts, paths.styles, paths.pugs[0]], ['lint', 'coffee', 'sass', 'pug:local']);
 });
