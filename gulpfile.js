@@ -105,7 +105,7 @@ gulp.task('pug:live', function buildHTML() {
 
 gulp.task('uglify:plugins', function (cb) {
     pump([
-            gulp.src(['./node_modules/foundation-sites/vendor/jquery/dist/jquery.min.js', './app/vendor/jquery.parallax.js', './node_modules/foundation-sites/dist/foundation.js', './node_modules/foundation-sites/dist/plugins/foundation.util.motion.js', './node_modules/foundation-sites/dist/plugins/foundation.util.triggers.js', './node_modules/foundation-sites/dist/plugins/foundation.toggler.js']),
+            gulp.src(['./node_modules/foundation-sites/vendor/jquery/dist/jquery.min.js', './app/vendor/jquery.parallax.js', './node_modules/foundation-sites/dist/foundation.js']),
             concat('concat.js'),
             rename('plugins.min.js'),
             uglify(),
