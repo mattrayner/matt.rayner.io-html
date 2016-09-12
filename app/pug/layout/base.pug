@@ -6,7 +6,7 @@ html(lang="en")
     meta(http-equiv='x-ua-compatible',content='ie=edge')
     meta(name='viewport',content='width=device-width, initial-scale=1.0')
 
-    - title = title || 'Matt Rayner'
+    - title = title || 'Matt Rayner | Full stack polyglot tech lead in London'
     title #{title}
 
     // SEO
@@ -15,7 +15,7 @@ html(lang="en")
 
     - keywords = keywords || 'matt,rayner,ruby,tech,lead,php,cordova,ios,android,vuforia'
     meta(name='keywords', content=keywords)
-    - description = description || 'I\'m Matt Rayner, a polyglot, full-stack tech lead based in south east London, UK. I\'ve got 10+ years commercial experience in mobile and web development with an addiction to learning new things'
+    - description = description || 'I\'m Matt Rayner, a polyglot, full stack tech lead based in south east London, UK. I\'ve got 10+ years commercial experience in mobile and web development with an addiction to learning new things'
     meta(name='description', content=description)
 
     // OG tags
@@ -43,6 +43,35 @@ html(lang="en")
     link(rel='apple-touch-icon-precomposed',href=baseUrl+'assets/images/favicon/favicon-180x180.png')
     meta(name='msapplication-TileImage',content=baseUrl+'assets/images/favicon/favicon-transparent-144x144.png')
     meta(name='msapplication-TileColor',content='#e5007d')
+
+    // JSON-LD
+    script(type='application/ld+json').
+      {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Crayford",
+          "addressRegion": "London",
+          "postalCode": "DA1"
+        },
+        "email": "mailto:hello@matt.rayner.io",
+        "image": "https://matt.rayner.io/mattrayner.jpg",
+        "jobTitle": "Tech Lead",
+        "name": "Jane Doe",
+        "alumniOf": "University of Kent",
+        "birthPlace": "Chatham, Kent",
+        "birthDate": "1991.07.31",
+        "height": "71 inches",
+        "gender": "male",
+        "nationality": "United Kingdom",
+        "url": "https://matt.rayner.io",
+          "sameAs" : [ "https://www.facebook.com/matthewrayner",
+          "https://uk.linkedin.com/in/mattrayner",
+          "http://twitter.com/mattrayner",
+          "http://instagram.com/mattrayner",
+          "https://plus.google.com/104559413596977954510"]
+      }
 
     block stylesheets
       link(rel='stylesheet', href=baseUrl+'css/base.min.css')
