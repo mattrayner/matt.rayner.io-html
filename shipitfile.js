@@ -21,16 +21,12 @@ module.exports = function (shipit) {
         return shipit.remote('cd '+shipit.releasePath+' && npm install && npm install gulp-cli && sleep 3');
     });
 
-    shipit.blTask('grunt:build', ['npm:install'], function(){
+    shipit.blTask('gulp', ['npm:install'], function(){
         shipit.log('Attempting grunt:build');
-        return shipit.remote('cd '+shipit.releasePath+' && gulp && sleep 5');
+        return shipit.remote('cd '+shipit.releasePath+' && gulp && sleep 1 && gulp sitemap && sleep 4');
     });
 
     shipit.on('updated', function(){
-        return shipit.start('grunt:build');
-    });
-
-    shipit.on('deployed', function(){
-        return shipit.remote('cd '+shipit.releasePath+' && gulp && sleep 5');
+        return shipit.start('gulp');
     });
 };
