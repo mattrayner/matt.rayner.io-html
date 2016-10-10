@@ -15,6 +15,7 @@ dependencies:
 test:
   override:
     - gulp
+    - gulp sitemap
 
 deployment:
   live:

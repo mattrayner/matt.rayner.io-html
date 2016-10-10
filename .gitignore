@@ -55,6 +55,7 @@ dist/**/*.js
 dist/**/*.html
 dist/**/*.css
 dist/**/*.map
+dist/sitemap.xml
 
 # Ignore SCSS cache
 .sass-cache/

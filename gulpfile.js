@@ -13,7 +13,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     pump = require('pump'),
     mocha = require('gulp-mocha'),
-    data = require('gulp-data');
+    data = require('gulp-data'),
+    sitemap = require('gulp-sitemap');
 
 var paths = {
     scripts: './app/coffee/**/*.coffee',
@@ -115,7 +116,17 @@ gulp.task('uglify:plugins', function (cb) {
     );
 });
 
+gulp.task('sitemap', function () {
+    gulp.src('./dist/**/*.html', {
+        read: false
+    })
+    .pipe(sitemap({
+        siteUrl: 'https://matt.rayner.io/'
+    }))
+    .pipe(gulp.dest('./dist'));
+});
+
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-    gulp.watch([paths.scripts, paths.styles, paths.pugs[0]], ['lint', 'coffee', 'sass', 'pug:local']);
+    gulp.watch([paths.scripts, paths.styles, paths.pugs[0]], ['lint', 'coffee', 'sass', 'pug:local', 'sitemap']);
 });
