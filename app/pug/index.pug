@@ -17,18 +17,23 @@ block content
         .content
             h1.show-for-sr Matt Rayner | Full stack polyglot tech lead in London
             a(href=baseUrl)
-                img(src=baseUrl+'assets/images/logo-full.svg', alt='Matt Rayner')
+                img(src=baseUrl+'assets/images/logo-full.svg', alt='Matt Rayner Logo')
             p Full-stack polyglot tech lead in London
         | <svg class="arrows"><path class="a1" d="M0 0 L30 32 L60 0"></path><path class="a2" d="M0 20 L30 52 L60 20"></path><path class="a3" d="M0 40 L30 72 L60 40"></path></svg>
     section#about-me.row-padding
         .row
             .large-10.large-offset-1.columns
-                img.border-fade.rounded-image.about-me-image(src='https://s.gravatar.com/avatar/654c203f4d1c78392370aeb8325bbb58?s=600')
+                img.border-fade.rounded-image.about-me-image(src='https://s.gravatar.com/avatar/654c203f4d1c78392370aeb8325bbb58?s=600',alt='Picture of Matt Rayner')
                 .about-me__content
+                    a#mainContent(name='mainContent')
                     h2 About Me
                     p I’m Matt Rayner, a talented and dedicated full stack, polyglot tech lead. I’m looking for a challenging environment to test and improve my skills. I love learning new things and am an early adopter of bleeding edge technologies. Outside of work I’m involved in volunteering and a number of side projects. Everything from training students in multimedia and design skills, through to #[a(href='http://give.cat/',target='_blank') Give Cat] - a bookmarklet that replaces all the images on a website with pictures of cats (what more could you want, right?).
 
-                    a#about-me-expand-heading(role='button',aria-controls='about-me-expand',data-toggle='about-me-expand') Read more about me
+                    a#about-me-expand-heading(role='button',aria-controls='about-me-expand',data-toggle='about-me-expand')
+                        span Read more about me
+                        i
+                            span
+                            span
                     #about-me-expand(data-toggler='.expanded',aria-labelledby='about-me-expand-heading')
                         p I’m a massive geek at heart, anything that goes ‘bleep bloop’, I’m all over it. In the past, I’ve acted as an IT Consultant for the Citizens Advice Bureau and the Head of IT for a community radio station. I’ve got a passion for products that make people’s lives easier; whether they take the stress out of a task or are accessible to everyone, that’s my sort of thing.
                         p In the past, I’ve been a graphic designer and a front end developer so I have extensive experience with both front end technologies and back end solutions (Wordpress CMS, MySQL, PHP, HAML, Responsive websites using Twitter Bootstrap, Javascript, JQuery, Ruby, CSS, iPhone, Android - all the usual suspects). I’ve also had exposure to web standards, ensuring the code I write is semantic and cross browser tested.
@@ -36,69 +41,66 @@ block content
     section#skills.row-padding
         .row
             .large-10.large-offset-1.columns
-                h2 Skills, Languages and Technologies
+                h2#skills-heading Skills
         .row
-            .large-12.columns
-                .skills__content
-                    ul.skills
-                        li.skill.major
-                            .icon.ruby
-                            .title Ruby
-                        li.skill.major
-                            .icon.php
-                            .title PHP
-                        li.skill.major
-                            .icon.node
-                            .title Node
-                        li.skill.major
-                            .icon.mysql
-                            .title MySQL
-                        li.skill.major
-                            .icon.javascript
-                            .title JavaScript
-                        li.skill.major
-                            .icon.rails
-                            .title Rails
-                        li.skill.major
-                            .icon.cordova
-                            .title Cordova
-                        li.skill.major
-                            .icon.vuforia
-                            .title Vuforia
-                        li.skill
-                            .title RSPEC
-                        li.skill
-                            .title Capistrano
-                        li.skill
-                            .title JQuery
-                        li.skill
-                            .title CoffeeScript
-                        li.skill
-                            .title Bash
-                        li.skill
-                            .title ActionScript 3
-                        li.skill
-                            .title Go
-                        li.skill
-                            .title PostgreSQL
-                        li.skill
-                            .title HAML
-                        li.skill
-                            .title Wordpress
-                        li.skill
-                            .title Silver Stripe
-                        li.skill
-                            .title Concrete5
-                        li.skill
-                            .title NFC
-                        li.skill
-                            .title Socket.io
-                        li.skill
-                            .title iOS (objective-c)
-                        li.skill
-                            .title iOS (swift)
-                        li.skill
-                            .title Android
+            .large-10.medium-offset-1.columns
+                .row
+                    .large-12.columns
+                        .skills__content
+                            section(aria-labelledby='skills-heading')
+                                ul.skills(aria-labelledby='skills-heading')
+                                    li.skill.major
+                                        .title ActionScript 2 & 3
+                                    li.skill.major
+                                        .title C# (Unity)
+                                    li.skill.major
+                                        .title CSS3
+                                    li.skill.major
+                                        .title HTML5
+                                    li.skill.major
+                                        .title Java (Android)
+                                    li.skill.major
+                                        .title JavaScript
+                                    li.skill.major
+                                        .title JQuery
+                                    li.skill.major
+                                        .title MySQL
+                                    li.skill.major
+                                        .title *NIX Bash
+                                    li.skill.major
+                                        .title Objective-C (iOS)
+                                    li.skill.major
+                                        .title PHP
+                                    li.skill.major
+                                        .title Ruby
+                                    li.skill.major
+                                        .title Swift (iOS)
+                                    li.skill.major
+                                        .title Vuforia
+                                    li.skill
+                                        .title Agile Methodologies
+                                    li.skill
+                                        .title CoffeeScript
+                                    li.skill
+                                        .title Cordova
+                                    li.skill
+                                        .title ERB
+                                    li.skill
+                                        .title HAML
+                                    li.skill
+                                        .title Illustrator
+                                    li.skill
+                                        .title InDesign
+                                    li.skill
+                                        .title Node
+                                    li.skill
+                                        .title Photoshop
+                                    li.skill
+                                        .title RSpec
+                                    li.skill
+                                        .title Sass
+
+                                .clearfix
     section#case-studies.row-padding
         .row
             .large-10.large-offset-1.columns

@@ -1,7 +1,7 @@
 @import '../../node_modules/foundation-sites/scss/foundation';
 @include foundation-global-styles;
 
-@import 'https://fonts.googleapis.com/css?family=Lato:300,400';
+@import 'https://fonts.googleapis.com/css?family=Lato:300,400,700';
 
 // This code overwrites any variables set in the Foundation settings scss file
 $body-font-family: 'Lato', sans-serif;
@@ -53,7 +53,7 @@ body{
   font-family: 'Lato', sans-serif;
   font-weight: 300;
 
-  strong, b, h1, h2, h3 { font-weight: 400; }
+  strong, b, h1, h2 { font-weight: 400; }
 
   a {
     color: $primary-color;
@@ -68,6 +68,7 @@ body{
 }
 
 h2 { border-bottom: 1px solid lighten($primary-color, 50%); margin-bottom: 1em; }
+h3 { color: $secondary-color; }
 
 img, object, embed {
   max-width: 100%;
@@ -176,8 +177,8 @@ img, object, embed {
   background: $nav_overlay--color;
   text-align: center;
   text-transform: uppercase;
-  //@include transform(translateX(-100%));
-  @include transition(all $transition-time cubic-bezier(1.000, 0.200, 0.440, 0.985));
+  @include transform(translateX(-100%));
+  @include transition(opacity $transition-time cubic-bezier(1.000, 0.200, 0.440, 0.985));
 
   overflow-y: scroll;
 
@@ -209,8 +210,8 @@ img, object, embed {
 
   &.is-open ~ .toggle-menu {
     display: inline-block;
-    @include transition(all $transition-time ease-in-out);
-    //transform: rotate(135deg);
+    @include transition(opacity $transition-time ease-in-out);
+    @include transform(translateX(0));
     svg {
       rect, polygon {
         fill: $nav_icon--color--active;

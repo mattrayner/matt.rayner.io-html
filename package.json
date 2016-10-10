@@ -29,6 +29,7 @@
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
+    "isotope-layout": "^3.0.1",
     "pump": "^1.0.1",
     "shipit-cli": "^1.4.1",
     "shipit-deploy": "^2.2.0",
