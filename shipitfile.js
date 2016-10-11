@@ -29,4 +29,8 @@ module.exports = function (shipit) {
     shipit.on('updated', function(){
         return shipit.start('gulp');
     });
+
+    shipit.on('deployed', function(){
+        return shipit.remote('cd '+shipit.releasePath+' && gulp && sleep 1 && gulp sitemap && sleep 4');
+    });
 };
