@@ -5,7 +5,7 @@ block variables
     - var socialTitle = 'Matt Rayner - Page Not Found'
 
 block append stylesheets
-    link(rel='stylesheet', href=baseUrl+'css/404.min.css')
+    link(rel='stylesheet', href=baseUrl+'css/index.min.css')
 
 block content
     main#mainContent
@@ -15,5 +15,24 @@ block content
                 h1.page-title OOPS, PAGE NOT FOUND
                 p.page-content= 'THERE\'S NO PLACE LIKE '
                     a(href=baseUrl) HOME
+
+block content
+    section#home-slide.primary-background
+        .background
+            ul#scene
+                li.layer.layer-1(data-depth="0.5")
+                    .image
+                li.layer.layer-2(data-depth="0.75")
+                    .image
+                li.layer.layer-3(data-depth="1.0")
+                    .image
+            .overlay
+        .content
+            h1 Page not found
+            p It's not you, it's me... There's no place like #[a(href=baseUrl) home].
+
+block footer
+    .invisible
+
 block append scripts
     script(src=baseUrl+'js/index.min.js')

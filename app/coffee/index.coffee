@@ -18,7 +18,7 @@ $(document).ready(    ->
 
   $grid = $('.skills').isotope({
     itemSelector: 'li',
-    layoutMode: 'fitRows',
+    layoutMode: 'packery',
   })
 
 )

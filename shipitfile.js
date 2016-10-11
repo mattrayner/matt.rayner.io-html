@@ -23,7 +23,7 @@ module.exports = function (shipit) {
 
     shipit.blTask('gulp', ['npm:install'], function(){
         shipit.log('Attempting grunt:build');
-        return shipit.remote('cd '+shipit.releasePath+' && gulp && sleep 1 && gulp sitemap && sleep 4');
+        return shipit.remote('cd '+shipit.releasePath+' && gulp build:live && sleep 1 && gulp sitemap && sleep 4');
     });
 
     shipit.on('updated', function(){
@@ -31,6 +31,6 @@ module.exports = function (shipit) {
     });
 
     shipit.on('deployed', function(){
-        return shipit.remote('cd '+shipit.releasePath+' && gulp && sleep 1 && gulp sitemap && sleep 4');
+        return shipit.remote('cd '+shipit.releasePath+' && gulp build:live && sleep 1 && gulp sitemap && sleep 4');
     });
 };
