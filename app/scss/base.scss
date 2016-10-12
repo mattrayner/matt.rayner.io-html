@@ -1,8 +1,6 @@
 @import '../../node_modules/foundation-sites/scss/foundation';
 @include foundation-global-styles;
 
-@import 'https://fonts.googleapis.com/css?family=Lato:300,400,700';
-
 // This code overwrites any variables set in the Foundation settings scss file
 $body-font-family: 'Lato', sans-serif;
 $header-font-family: 'Lato', sans-serif;
