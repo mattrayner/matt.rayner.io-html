@@ -121,7 +121,8 @@ gulp.task('sitemap', function () {
         read: false
     })
     .pipe(sitemap({
-        siteUrl: 'https://matt.rayner.io/'
+        siteUrl: 'https://matt.rayner.io/',
+        changefreq: 'monthly'
     }))
     .pipe(gulp.dest('./dist'));
 });
