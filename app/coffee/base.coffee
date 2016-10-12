@@ -53,3 +53,12 @@ $('.toggle-menu').on('click', (e)->
     1000/settings.animationFps
   )
 )
+
+$(document).ready(->
+  try_to_init_foundation = ->
+    if(typeof $(document).foundation != 'undefined')
+      clearInterval(init_foundation)
+      $(document).foundation()
+
+  init_foundation = setInterval(try_to_init_foundation, 10)
+)

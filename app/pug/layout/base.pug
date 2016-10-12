@@ -120,12 +120,8 @@ html(lang="en")
 
     // Scripts
     block scripts
-      script(src=baseUrl+'js/plugins.min.js')
-      script(src=baseUrl+'js/base.min.js')
-      script(type='text/javascript').
-        $(document).ready(function() {
-          $(document).foundation();
-        });
+      script(src=baseUrl+'js/plugins.min.js', async=true)
+      script(src=baseUrl+'js/base.min.js', async=true, defer=true)
 
       // Styles
       noscript#deferred-styles
