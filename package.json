@@ -15,6 +15,7 @@
   "homepage": "https://github.com/mattrayner/matt.rayner.io-html",
   "dependencies": {},
   "devDependencies": {
+    "critical": "^0.8.0",
     "foundation-sites": "^6.2.3",
     "gulp": "^3.9.1",
     "gulp-coffee": "^2.3.2",

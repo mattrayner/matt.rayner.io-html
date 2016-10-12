@@ -14,7 +14,8 @@ var gulp = require('gulp'),
     pump = require('pump'),
     mocha = require('gulp-mocha'),
     data = require('gulp-data'),
-    sitemap = require('gulp-sitemap');
+    sitemap = require('gulp-sitemap'),
+    critical = require('critical');
 
 var paths = {
     scripts: './app/coffee/**/*.coffee',
@@ -125,6 +126,18 @@ gulp.task('sitemap', function () {
         changefreq: 'monthly'
     }))
     .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('critical', function (cb) {
+    critical.generate({
+        inline: true,
+        base: 'dist/',
+        src: 'index.html',
+        dest: 'dist/index.html',
+        minify: true,
+        width: 320,
+        height: 480
+    });
 });
 
 // Rerun the task when a file changes
