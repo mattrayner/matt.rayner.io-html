@@ -15,8 +15,9 @@ var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
     data = require('gulp-data'),
     sitemap = require('gulp-sitemap'),
-    critical = require('critical'),
-    download = require('gulp-download');
+    critical = require('critical').stream,
+    download = require('gulp-download'),
+    cachebust = require('gulp-cache-bust');
 
 var paths = {
     scripts: './app/coffee/**/*.coffee',
@@ -79,6 +80,7 @@ gulp.task('pug:local', function buildHTML() {
         }))
         .pipe(puglint())
         .pipe(pug())
+        .pipe(cachebust())
         .pipe(gulp.dest('./dist'));
 });
 
@@ -91,6 +93,7 @@ gulp.task('pug:dev', function buildHTML() {
         }))
         .pipe(puglint())
         .pipe(pug())
+        .pipe(cachebust())
         .pipe(gulp.dest('./dist'));
 });
 
@@ -103,6 +106,7 @@ gulp.task('pug:live', function buildHTML() {
         }))
         .pipe(puglint())
         .pipe(pug())
+        .pipe(cachebust())
         .pipe(gulp.dest('./dist'));
 });
 
@@ -130,15 +134,9 @@ gulp.task('sitemap', function () {
 });
 
 gulp.task('critical', function (cb) {
-    critical.generate({
-        inline: true,
-        base: 'dist/',
-        src: 'index.html',
-        dest: 'dist/index.html',
-        minify: true,
-        width: 320,
-        height: 480
-    });
+    return gulp.src('dist/*.html')
+        .pipe(critical({base: 'dist/', inline: true, minify: true, width: 320, height: 480}))
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('fetch-newest-analytics', function() {
