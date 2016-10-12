@@ -2,9 +2,9 @@
 @include foundation-global-styles;
 
 // This code overwrites any variables set in the Foundation settings scss file
-$body-font-family: 'Lato', sans-serif;
-$header-font-family: 'Lato', sans-serif;
 $font-family-sans-serif: 'Lato', sans-serif;
+$body-font-family: $font-family-sans-serif;
+$header-font-family: $font-family-sans-serif;
 
 //@include foundation-grid;
 @include foundation-flex-grid;

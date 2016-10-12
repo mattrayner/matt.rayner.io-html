@@ -23,6 +23,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
     "gulp-data": "^1.2.1",
+    "gulp-download": "0.0.1",
     "gulp-mocha": "^3.0.1",
     "gulp-pug": "^3.0.4",
     "gulp-pug-lint": "^0.1.6",

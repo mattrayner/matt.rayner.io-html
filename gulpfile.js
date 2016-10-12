@@ -15,7 +15,8 @@ var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
     data = require('gulp-data'),
     sitemap = require('gulp-sitemap'),
-    critical = require('critical');
+    critical = require('critical'),
+    download = require('gulp-download');
 
 var paths = {
     scripts: './app/coffee/**/*.coffee',
@@ -28,15 +29,15 @@ gulp.task('default', function() {
     // gulp-mocha needs filepaths so you can't have any plugins before it
         .pipe(mocha({reporter: 'nyan'}));
 
-    gulp.start('lint', 'coffee', 'sass', 'pug:local', 'uglify:plugins');
+    gulp.start('lint', 'coffee', 'sass', 'pug:local', 'uglify:plugins', 'fetch-newest-analytics');
 });
 
 gulp.task('build:live', function() {
-    gulp.start('lint', 'coffee', 'sass', 'pug:live', 'uglify:plugins');
+    gulp.start('lint', 'coffee', 'sass', 'pug:live', 'uglify:plugins', 'fetch-newest-analytics');
 });
 
 gulp.task('build:dev', function() {
-    gulp.start('lint', 'coffee', 'sass', 'pug:dev', 'uglify:plugins');
+    gulp.start('lint', 'coffee', 'sass', 'pug:dev', 'uglify:plugins', 'fetch-newest-analytics');
 });
 
 gulp.task('coffee', function() {
@@ -138,6 +139,11 @@ gulp.task('critical', function (cb) {
         width: 320,
         height: 480
     });
+});
+
+gulp.task('fetch-newest-analytics', function() {
+    return download('https://www.google-analytics.com/analytics.js')
+        .pipe(gulp.dest('./dist/js/'));
 });
 
 // Rerun the task when a file changes
