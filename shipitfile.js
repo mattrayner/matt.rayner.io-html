@@ -23,10 +23,14 @@ module.exports = function (shipit) {
 
     shipit.blTask('gulp', ['npm:install'], function(){
         shipit.log('Attempting grunt:build');
-        return shipit.remote('cd '+shipit.releasePath+' && gulp build:live && sleep 1 && gulp critical && sleep 1 && gulp sitemap && sleep 1');
+        return shipit.remote('cd '+shipit.releasePath+' && gulp build:live && gulp build:sitemap');
     });
 
     shipit.on('updated', function(){
         return shipit.start('gulp');
+    });
+
+    shipit.on('deployed', function(){
+        return shipit.remote('cd '+shipit.releasePath+' && gulp build:critical')
     });
 };

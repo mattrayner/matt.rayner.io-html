@@ -57,5 +57,8 @@ dist/**/*.css
 dist/**/*.map
 dist/sitemap.xml
 
+# Ignore the rev manifest
+rev-manifest.json
+
 # Ignore SCSS cache
 .sass-cache/
