@@ -7,6 +7,11 @@ $(document).ready(    ->
     $(this).toggleClass('minus')
   )
 
+  $('.filter-button-group').on( 'click', 'button', ->
+    filterValue = $(this).attr('data-filter')
+    $grid.isotope({ filter: filterValue })
+  )
+
   # Initialise isotope once our css has been loaded
   css_interval = setInterval(->
     element_color = $('.skills li .title').first().css('color')
@@ -21,7 +26,7 @@ $(document).ready(    ->
       setTimeout(->
         $grid = $('.skills').isotope({
           itemSelector: 'li',
-          layoutMode: 'fitRows',
+          layoutMode: 'fitRows'
         })
       , 200)
 

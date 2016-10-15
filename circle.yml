@@ -9,7 +9,6 @@ machine:
 dependencies:
   override:
     - npm install -g gulp-cli
-    - npm install -g shipit-cli
     - npm install
 
 test:
@@ -22,4 +21,5 @@ deployment:
   live:
     branch: master
     commands:
+      - npm install -g shipit-cli
       - shipit live deploy

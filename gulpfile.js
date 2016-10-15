@@ -238,5 +238,5 @@ gulp.task('build:critical', function (cb) {
 
 // Rerun the default when a file changes
 gulp.task('watch', function() {
-    gulp.watch([paths.coffee.in, paths.scss.in, paths.pugs[0]], ['default']);
+    gulp.watch([paths.coffee.in, paths.scss.in, paths.pugs.in[0]], ['default']);
 });

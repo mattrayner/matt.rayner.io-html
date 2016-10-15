@@ -1,3 +1,9 @@
+// Fonts
+$font-family-sans-serif: 'Lato', sans-serif;
+$body-font-family: $font-family-sans-serif;
+$header-font-family: $font-family-sans-serif;
+
+// Colours
 $primary-color: rgb(229,0,125);
 $secondary-color: rgb(0,158,227);
 
@@ -14,12 +20,13 @@ $nav_link--height: 7.5rem;
 $nav_link--font-size: 3rem;
 $nav_link--border: none;
 
+// Animation helpers
 $transition-time: 0.2s;
 $transition-time--long: 0.4s;
 $transition-time--extra-long: 2s;
 
-$row-width: rem-calc(100%);
-
-// Transition variables
 $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $ease-in-out-quad: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+// Override default row widths
+$row-width: rem-calc(100%);

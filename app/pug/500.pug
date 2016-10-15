@@ -1,8 +1,8 @@
 extends ./layout/base
 
 block variables
-    - var title = 'Matt Rayner | Oops, Page Not Found'
-    - var socialTitle = 'Matt Rayner - Page Not Found'
+    - var title = 'Matt Rayner | Something went wrong'
+    - var socialTitle = title
 
 block append stylesheets
     link(rel='stylesheet', href=baseUrl+'css/index.min.css')
@@ -19,8 +19,8 @@ block content
                     .image
             .overlay
         .content
-            h1 Oops, page not found
-            p It's not you, it's me... There's no place like #[a(href=baseUrl) home].
+            h1.page-title Something went wrong
+            p.page-content Lets try going #[a(href=baseUrl) home].
 
 
 block append scripts

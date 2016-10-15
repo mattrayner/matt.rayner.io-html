@@ -46,58 +46,68 @@ block content
             .large-10.medium-offset-1.columns
                 .row
                     .large-12.columns
+                        .button-group.filter-button-group
+                            button.button(data-filter='*') All
+                            button.button(data-filter='.language') Language
+                            button.button(data-filter='.framework') Framework
+                            button.button(data-filter='.software') Software
+                            button.button(data-filter='.knowledge') Skill
+                .row
+                    .large-12.columns
                         .skills__content
                             section(aria-labelledby='skills-heading')
                                 ul.skills(aria-labelledby='skills-heading')
-                                    li.skill.major
+                                    li.skill.major.language
                                         .title ActionScript 2 & 3
-                                    li.skill.major
+                                    li.skill.major.language
                                         .title C# (Unity)
-                                    li.skill.major
+                                    li.skill.major.language
                                         .title CSS3
-                                    li.skill.major
+                                    li.skill.major.language
                                         .title HTML5
-                                    li.skill.major
+                                    li.skill.major.language
                                         .title Java (Android)
-                                    li.skill.major
+                                    li.skill.major.language
                                         .title JavaScript
-                                    li.skill.major
+                                    li.skill.major.language
                                         .title JQuery
-                                    li.skill.major
+                                    li.skill.major.language
                                         .title MySQL
-                                    li.skill.major
+                                    li.skill.major.language.skill
                                         .title *NIX Bash
-                                    li.skill.major
+                                    li.skill.major.language
                                         .title Objective-C (iOS)
-                                    li.skill.major
+                                    li.skill.major.language
                                         .title PHP
-                                    li.skill.major
+                                    li.skill.major.language
                                         .title Ruby
-                                    li.skill.major
+                                    li.skill.major.framework
+                                        .title Rails
+                                    li.skill.major.language
                                         .title Swift (iOS)
-                                    li.skill.major
+                                    li.skill.major.framework
                                         .title Vuforia
-                                    li.skill
+                                    li.skill.knowledge
                                         .title Agile Methodologies
-                                    li.skill
+                                    li.skill.language
                                         .title CoffeeScript
-                                    li.skill
+                                    li.skill.framework
                                         .title Cordova
-                                    li.skill
+                                    li.skill.language
                                         .title ERB
-                                    li.skill
+                                    li.skill.language
                                         .title HAML
-                                    li.skill
+                                    li.skill.software
                                         .title Illustrator
-                                    li.skill
+                                    li.skill.software
                                         .title InDesign
-                                    li.skill
+                                    li.skill.framework
                                         .title Node
-                                    li.skill
+                                    li.skill.software
                                         .title Photoshop
-                                    li.skill
+                                    li.skill.language
                                         .title RSpec
-                                    li.skill
+                                    li.skill.language
                                         .title Sass
 
                                 .clearfix

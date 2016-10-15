@@ -2,15 +2,13 @@
 @include foundation-global-styles;
 
 // This code overwrites any variables set in the Foundation settings scss file
-$font-family-sans-serif: 'Lato', sans-serif;
-$body-font-family: $font-family-sans-serif;
-$header-font-family: $font-family-sans-serif;
+@import '_variables.scss';
 
 //@include foundation-grid;
 @include foundation-flex-grid;
 @include foundation-typography;
 //@include foundation-forms;
-//@include foundation-button;
+@include foundation-button;
 //@include foundation-accordion;
 //@include foundation-accordion-menu;
 //@include foundation-badge;
@@ -44,7 +42,6 @@ $header-font-family: $font-family-sans-serif;
 //@include foundation-float-classes;
 @include foundation-flex-classes;
 
-@import '_variables.scss';
 @import 'mixins';
 
 body{
