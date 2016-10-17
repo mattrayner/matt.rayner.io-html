@@ -1,0 +1,27 @@
+extends ./layout/base
+
+block variables
+    - var title = 'Matt Rayner | Download my CV'
+    - var socialTitle = 'Matt Rayner - Download my CV'
+
+block append stylesheets
+    link(rel='stylesheet', href=baseUrl+'css/index.min.css')
+
+block content
+    section#home-slide.primary-background
+        .background
+            ul#scene
+                li.layer.layer-1(data-depth="0.5")
+                    .image
+                li.layer.layer-2(data-depth="0.75")
+                    .image
+                li.layer.layer-3(data-depth="1.0")
+                    .image
+            .overlay
+        .content
+            h1 Okay, I'm not quite ready for you yet...
+            p I may have a shiney (almost finished) new site, but my CV is still on it's way. Head #[a(href=baseUrl) home] and check again later.
+
+
+block append scripts
+    script(src=baseUrl+'js/index.min.js', defer=true)
