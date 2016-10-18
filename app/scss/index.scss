@@ -234,6 +234,7 @@ section#skills {
   ul.skills {
     margin: 0;
     list-style: none;
+    @include transition(height .3s ease-in-out);
 
     li.skill {
       text-align: center;
