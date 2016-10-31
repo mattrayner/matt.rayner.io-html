@@ -1,0 +1,25 @@
+a#cv-cover {
+  height: 220px;
+  width: 200px;
+  display: block;
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 0;
+
+    width: 150px;
+    height: auto;
+
+    border: 2px solid white;
+    transform: translateX(-50%) rotate(-8deg);
+
+    -webkit-box-shadow: 1px 1px 6px rgba(0,0,0,0.15);
+    -moz-box-shadow:    1px 1px 6px rgba(0,0,0,0.15);
+    box-shadow:         1px 1px 6px rgba(0,0,0,0.15);
+  }
+
+  @media only screen and (max-height: 399px) {
+    display: none;
+  }
+}

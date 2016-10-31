@@ -1,11 +1,12 @@
 extends ../layout/base
 
 block variables
-    - var title = 'Matt Rayner | Download my CV'
-    - var socialTitle = 'Matt Rayner - Download my CV'
+    - var title = 'Download my CV | Matt Rayner'
+    - var socialTitle = 'Download my CV - Matt Rayner - Full stack polyglot tech lead in London'
 
 block append stylesheets
     link(rel='stylesheet', href=baseUrl+'css/index.min.css')
+    link(rel='stylesheet', href=baseUrl+'css/download.min.css')
 
 block content
     section#home-slide.primary-background
@@ -19,9 +20,10 @@ block content
                     .image
             .overlay
         .content
-            h1 Okay, I'm not quite ready for you yet...
-            p I may have a shiney (almost finished) new site, but my CV is still on it's way. Head #[a(href=baseUrl) home] and check again later.
-
+            a#cv-cover(href=baseUrl + 'download/matthew-rayner-tech-lead-cv.pdf', target='_blank', download=true)
+                img(src=baseUrl+'assets/images/download/matthew-rayner-tech-lead-cv-cover.jpg',srcset=baseUrl+'assets/images/download/matthew-rayner-tech-lead-cv-cover.jpg 1x, '+baseUrl+'assets/images/download/matthew-rayner-tech-lead-cv-cover@2x.jpg 2x, '+baseUrl+'assets/images/download/matthew-rayner-tech-lead-cv-cover@3x.jpg 3x')
+            h1 Download my CV
+            p Your download should begin shortly, if you can't wait just #[a#cv-download(href=baseUrl + 'download/matthew-rayner-tech-lead-cv.pdf', target='_blank', download=true) click here to download now].
 
 block append scripts
-    script(src=baseUrl+'js/index.min.js', defer=true)
+    script(src=baseUrl+'js/download.min.js', defer=true)
