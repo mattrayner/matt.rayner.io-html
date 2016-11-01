@@ -135,7 +135,7 @@ img, object, embed {
         &:last-child {
           &:after {
             content: none;
-            margin: 0;
+            padding: 0;
           }
         }
       }
@@ -146,6 +146,48 @@ img, object, embed {
     img {
       width: 18%;
       margin-right: 5%;
+    }
+  }
+
+  @media only screen and (max-width: 639px) {
+    nav {
+      ul {
+        li {
+          display: block;
+          width: 100%;
+          float: none;
+
+          a {
+            font-size: 1.7rem;
+            padding: 10px 0 8px;
+            width: 100%;
+            display: block;
+          }
+
+          &:after {
+            content: none;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    a.footer-logo-link {
+      display: block;
+      width: 100%;
+
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    .social {
+      margin: 20px 0;
+    }
+
+    p.copyright-notice {
+      margin-top: 10px;
     }
   }
 }

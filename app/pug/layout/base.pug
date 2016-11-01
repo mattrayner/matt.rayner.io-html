@@ -158,8 +158,8 @@ body
   block footer
     #footer
       .row.large-collapse
-        .small-9.medium-3.columns.medium-offset-1
-          a(href=baseUrl)
+        .small-10.small-offset-1.medium-3.medium-offset-1.columns
+          a.footer-logo-link(href=baseUrl)
             img.footer-logo(src=baseUrl + 'assets/images/logo-full.svg', alt='Matt Rayner')
         .small-12.medium-4.columns.text-center
           nav
@@ -182,7 +182,7 @@ body
 
       .row
         .large-12.columns.text-center
-          p
+          p.copyright-notice
             small &copy; 2016 #[a(href=baseUrl) Matt Rayner]
 
   // Scripts
