@@ -148,38 +148,36 @@ body
       ul#menu.overlay-menu(aria-label='navigation')
         li
           a(href=baseUrl) Home
-        //li
-        //  a(href=baseUrl + 'about/') About me
         li
-          a(href=baseUrl + 'download/') Get my CV
+          a(href=baseUrl + 'about') About me
+        li
+          a(href=baseUrl + 'matthew-rayner-tech-lead-cv.pdf', target='_blank', download=true) Get my CV
 
   block content
 
   block footer
     #footer
-      .row
-        .large-10.large-offset-1.columns
-          .row
-            .large-4.columns
-              a(href=baseUrl)
-                img.footer-logo(src=baseUrl + 'assets/images/logo-full.svg', alt='Matt Rayner')
-            .large-4.columns.text-center
-              nav
-                ul(role='navigation')
-                  li
-                    a(href=baseUrl) Home
-                  //li
-                    a(href=baseUrl + 'about/') About me
-                  li
-                    a(href=baseUrl + 'download/') Get my CV
-            .large-4.columns.social.text-right
-              a(href='https://github.com/mattrayner',target='_blank')
-                img(src=baseUrl + 'assets/images/social-circle-github.svg', alt='Matt Rayner on GitHub')
-              a(href='https://twitter.com/mattrayner',target='_blank')
-                img(src=baseUrl + 'assets/images/social-circle-twitter.svg', alt='@mattrayner on Twitter')
-              a(href='https://uk.linkedin.com/in/mattrayner',target='_blank')
-                img(src=baseUrl + 'assets/images/social-circle-linkedin.svg', alt='Matt Rayner on LinkedinIn')
-              a(href='https://facebook.com/matthewrayner',target='_blank')
+      .row.large-collapse
+        .small-9.medium-3.columns.medium-offset-1
+          a(href=baseUrl)
+            img.footer-logo(src=baseUrl + 'assets/images/logo-full.svg', alt='Matt Rayner')
+        .small-12.medium-4.columns.text-center
+          nav
+            ul(role='navigation')
+              li
+                a(href=baseUrl) Home
+              li
+                a(href=baseUrl + 'about') About me
+              li
+                a(href=baseUrl + 'matthew-rayner-tech-lead-cv.pdf', target='_blank', download=true) Get my CV
+        .small-12.medium-3.columns.social.text-right
+          a(href='https://github.com/mattrayner',target='_blank')
+            img(src=baseUrl + 'assets/images/social-circle-github.svg', alt='Matt Rayner on GitHub')
+          a(href='https://twitter.com/mattrayner',target='_blank')
+            img(src=baseUrl + 'assets/images/social-circle-twitter.svg', alt='@mattrayner on Twitter')
+          a(href='https://uk.linkedin.com/in/mattrayner',target='_blank')
+            img(src=baseUrl + 'assets/images/social-circle-linkedin.svg', alt='Matt Rayner on LinkedinIn')
+          a(href='https://facebook.com/matthewrayner',target='_blank')
                 img(src=baseUrl + 'assets/images/social-circle-facebook.svg', alt='Matt Rayner on Facebook')
 
       .row
