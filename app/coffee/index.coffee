@@ -3,10 +3,6 @@ $grid = null
 $(document).ready(    ->
   $('#scene').parallax()
 
-  $('#about-me-expand-heading').on('click', ->
-    $(this).toggleClass('minus')
-  )
-
   $('.filter-button-group').on( 'click', 'button', ->
     filterValue = $(this).attr('data-filter')
     $grid.isotope({ filter: filterValue })
