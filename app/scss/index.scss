@@ -171,60 +171,6 @@ section#about-me {
       @include transition(all $transition-time--long $ease-in-out-quad);
 
       &:hover { text-decoration: none; }
-
-      i {
-        display: inline-block;
-        width: 12px;
-        height: 12px;
-        position: relative;
-        margin-left: 15px;
-
-        span {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 100%;
-          height: 2px;
-          background: white;
-          display: block;
-          @include transform(translate(-50%) rotate(-360deg));
-
-          @include transition(all $transition-time--long $ease-in-out-quad);
-
-          &:last-child {
-            @include transform(translate(-50%) rotate(-450deg));
-          }
-        }
-      }
-
-      &.minus {
-        i {
-          span {
-            @include transform(translate(-50%) rotate(-180deg));
-          }
-        }
-      }
-    }
-
-    #about-me-expand {
-      max-height: 0;
-      overflow: hidden;
-
-      @include transition(max-height $transition-time--long $ease-in-out-quad);
-
-      &.expanded {
-        max-height: 700px;
-      }
-
-      p {
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
-
-    @media only screen and (max-width: 640px) {
-      width: 100%;
     }
   }
 }
