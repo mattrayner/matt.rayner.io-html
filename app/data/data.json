@@ -1,0 +1,195 @@
+{
+  "types": [
+    {
+      "slug": "language",
+      "title": "Languages"
+    },
+    {
+      "slug": "framework",
+      "title": "Frameworks"
+    },
+    {
+      "slug": "skill",
+      "title": "Skills"
+    },
+    {
+      "slug": "knowledge",
+      "title": "Other Knowledge"
+    },
+    {
+      "slug": "software",
+      "title": "Software"
+    }
+  ],
+  "skills": {
+    "major": [
+      {
+        "types": [
+          "language"
+        ],
+        "title": "ActionScript"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "CoffeeScript"
+      },
+      {
+        "types": [
+          "framework"
+        ],
+        "title": "Cordova"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "CSS3"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "HTML5"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "Java (Android)"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "JavaScript"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "MySQL"
+      },
+      {
+        "types": [
+          "language",
+          "skill"
+        ],
+        "title": "*NIX Bash"
+      },
+      {
+        "types": [
+          "language",
+          "framework"
+        ],
+        "title": "NodeJS"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "Objective-C (iOS)"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "PHP"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "Ruby"
+      },
+      {
+        "types": [
+          "language",
+          "framework"
+        ],
+        "title": "Rails"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "Swift (iOS & MacOS)"
+      },
+      {
+        "types": [
+          "framework"
+        ],
+        "title": "Vuforia"
+      }
+    ],
+    "standard": [
+      {
+        "types": [
+          "knowledge"
+        ],
+        "title": "Agile Methodologies (Scrum)"
+      },
+      {
+        "types": [
+          "knowledge"
+        ],
+        "title": "Agile Methodologies (Kanban)"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "C# (Unity)"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "ERB"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "HAML"
+      },
+      {
+        "types": [
+          "software"
+        ],
+        "title": "Illustrator"
+      },
+      {
+        "types": [
+          "software"
+        ],
+        "title": "InDesign"
+      },
+      {
+        "types": [
+          "software"
+        ],
+        "title": "Photoshop"
+      },
+      {
+        "types": [
+          "software"
+        ],
+        "title": "RSpec"
+      },
+      {
+        "types": [
+          "software"
+        ],
+        "title": "RubyMine"
+      },
+      {
+        "types": [
+          "software"
+        ],
+        "title": "SASS"
+      }
+    ]
+  }
+}

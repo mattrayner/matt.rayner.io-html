@@ -212,7 +212,7 @@ section#skills {
         padding-right: .25em;
       }
 
-      @media #{$medium-up} {
+      @media (min-width: 641px) {
         width: 190px;
         margin: .5em;
       }

@@ -20,7 +20,8 @@ var gulp = require('gulp'),
     critical = require('critical').stream,
     rev = require("gulp-rev"), // Cache Busting
     revReplace = require("gulp-rev-replace"),
-    revdel = require('gulp-rev-delete-original');
+    revdel = require('gulp-rev-delete-original'),
+    fs = require('fs');
 
 // Reusable path strings
 var paths = {
@@ -92,27 +93,33 @@ gulp.task('build:live', function() {
 
 // Build pug files for different setups
 gulp.task('pug:local', function buildHTML() {
-    return build_pug_files({
-        debug: false,
-        baseUrl: '/',
-        isLive: false
-    })
+    var pug_data = get_data_file();
+
+    pug_data.debug = false;
+    pug_data.baseUrl = '/';
+    pug_data.isLive = false;
+
+    return build_pug_files(pug_data)
 });
 
 gulp.task('pug:dev', function buildHTML() {
-    return build_pug_files({
-        debug: false,
-        baseUrl: 'https://dev.matt.rayner.io/',
-        isLive: false
-    })
+    var pug_data = get_data_file();
+
+    pug_data.debug = false;
+    pug_data.baseUrl = 'https://dev.matt.rayner.io/';
+    pug_data.isLive = false;
+
+    return build_pug_files(pug_data)
 });
 
 gulp.task('pug:live', function buildHTML() {
-    return build_pug_files({
-        debug: false,
-        baseUrl: 'https://matt.rayner.io/',
-        isLive: true
-    })
+    var pug_data = get_data_file();
+
+    pug_data.debug = false;
+    pug_data.baseUrl = 'https://matt.rayner.io/';
+    pug_data.isLive = true;
+
+    return build_pug_files(pug_data)
 });
 
 // Compile our pug files using the data passed
@@ -122,6 +129,12 @@ var build_pug_files = function(data_value){
         .pipe(puglint())
         .pipe(pug())
         .pipe(gulp.dest(paths.pugs.out));
+};
+
+var get_data_file = function(){
+    return JSON.parse(
+        fs.readFileSync('./app/data/data.json')
+    );
 };
 
 
