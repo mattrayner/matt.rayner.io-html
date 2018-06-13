@@ -31,6 +31,18 @@
       },
       {
         "types": [
+          "framework"
+        ],
+        "title": "Alexa Skill Kit"
+      },
+      {
+        "types": [
+          "knowledge"
+        ],
+        "title": "Amazon Web Services"
+      },
+      {
+        "types": [
           "language"
         ],
         "title": "CoffeeScript"
@@ -46,6 +58,12 @@
           "language"
         ],
         "title": "CSS3"
+      },
+      {
+        "types": [
+          "knowledge"
+        ],
+        "title": "Graph Databases"
       },
       {
         "types": [
@@ -70,6 +88,12 @@
           "language"
         ],
         "title": "MySQL"
+      },
+      {
+        "types": [
+          "skill"
+        ],
+        "title": "Networking"
       },
       {
         "types": [
@@ -183,6 +207,12 @@
           "software"
         ],
         "title": "RubyMine"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "SparQL"
       },
       {
         "types": [

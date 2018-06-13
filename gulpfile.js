@@ -198,10 +198,10 @@ gulp.task('coffee', function() {
 // Uglify all of our plugins into one file
 gulp.task('uglify:plugins', function (cb) {
     pump([
-            gulp.src(['./node_modules/foundation-sites/vendor/jquery/dist/jquery.min.js', './app/vendor/jquery.parallax.js', './node_modules/foundation-sites/dist/foundation.js', './node_modules/isotope-layout/dist/isotope.pkgd.js']),
+            gulp.src(['./node_modules/jquery/dist/jquery.min.js', './app/vendor/jquery.parallax.js', './node_modules/foundation-sites/dist/foundation.js', './node_modules/isotope-layout/dist/isotope.pkgd.js']),
             concat('concat.js'),
             rename('plugins.min.js'),
-            uglify(),
+            // uglify(),
             gulp.dest(paths.coffee.out)
         ],
         cb
