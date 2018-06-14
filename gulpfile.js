@@ -106,7 +106,7 @@ gulp.task('pug:dev', function buildHTML() {
     var pug_data = get_data_file();
 
     pug_data.debug = false;
-    pug_data.baseUrl = 'https://dev.matt.rayner.io/';
+    pug_data.baseUrl = '/';
     pug_data.isLive = false;
 
     return build_pug_files(pug_data)
@@ -116,7 +116,7 @@ gulp.task('pug:live', function buildHTML() {
     var pug_data = get_data_file();
 
     pug_data.debug = false;
-    pug_data.baseUrl = 'https://matt.rayner.io/';
+    pug_data.baseUrl = '/';
     pug_data.isLive = true;
 
     return build_pug_files(pug_data)
@@ -201,7 +201,6 @@ gulp.task('uglify:plugins', function (cb) {
             gulp.src(['./node_modules/jquery/dist/jquery.min.js', './app/vendor/jquery.parallax.js', './node_modules/foundation-sites/dist/foundation.js', './node_modules/isotope-layout/dist/isotope.pkgd.js']),
             concat('concat.js'),
             rename('plugins.min.js'),
-            // uglify(),
             gulp.dest(paths.coffee.out)
         ],
         cb
