@@ -10,7 +10,7 @@ build-critical:
 	gulp build:critical
 
 deploy:
-	aws s3 sync dist/ s3://matt.rayner.io --exclude "/about" --delete
+	aws s3 sync dist/ s3://matt.rayner.io --delete
 	aws s3 mv s3://matt.rayner.io/about.html s3://matt.rayner.io/about
 
 deploy-clear-cache:
