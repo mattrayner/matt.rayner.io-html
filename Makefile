@@ -1,13 +1,13 @@
 build: build-live build-sitemap build-critical
 
 build-live:
-	gulp build:live
+	./node_modules/gulp-cli/bin/gulp.js build:live
 
 build-sitemap:
-	gulp build:sitemap
+	./node_modules/gulp-cli/bin/gulp.js build:sitemap
 
 build-critical:
-	gulp build:critical
+	./node_modules/gulp-cli/bin/gulp.js build:critical
 
 deploy:
 	aws s3 sync dist/ s3://matt.rayner.io --delete
