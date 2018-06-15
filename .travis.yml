@@ -12,12 +12,7 @@ before_deploy:
   - export PATH=$PATH:$HOME/.local/bin # put aws in the path
 
 deploy:
-  - provider: script
-    skip_cleanup: true
-    script:
-      - make deploy
-  - provider: script
-    script:
-      - make deploy-clear-cache
-    on:
-      tags: true
+  provider: script
+  skip_cleanup: true
+  script:
+    - make deploy
