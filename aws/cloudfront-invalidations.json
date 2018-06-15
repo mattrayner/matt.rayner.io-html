@@ -1,0 +1,13 @@
+{
+  "Paths": {
+    "Quantity": 6,
+    "Items": [
+      "/assets/images/*",
+      "/assets/images/social/*",
+      "/assets/images/favicon/*",
+      "/js/*",
+      "/css/*",
+      "/*"
+    ]
+  }
+}

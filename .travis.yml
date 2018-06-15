@@ -5,21 +5,14 @@ before_script:
   - npm install -g gulp-cli
 
 script:
-  - gulp build:live
-  - gulp build:sitemap
-  - gulp build:critical
+  - make build
 
 before_deploy:
   - pip install --user awscli # install aws cli w/o sudo
   - export PATH=$PATH:$HOME/.local/bin # put aws in the path
-  - cd dist
 
 deploy:
   provider: script
   skip_cleanup: true
   script:
-    - aws s3 sync css/ s3://matt.rayner.io/css --delete # sync CSS
-    - aws s3 sync js/ s3://matt.rayner.io/js --delete # sync JS
-    - aws s3 sync assets/ s3://matt.rayner.io/assets --recursive --delete # sync Assets
-    - aws s3 sync . s3://matt.rayner.io --exclude "*" --include "*.html" --exclude "about.html" --include "*.jpg" --include "*.png" --include "*.pdf" --include "*.xml" --include "*.css" --include "*.js" --include "*.svg" --include "*.ico" --exclude "css/*" --exclude "js/*"
-    - aws s3 cp about.html s3://matt.rayner.io/about --content-type "application/html" # update About
+    - make deploy
