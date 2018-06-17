@@ -15,4 +15,4 @@ deploy:
     - make deploy
   on:
     branch: master
-    tags: true
+
