@@ -246,9 +246,8 @@ gulp.task('build:sitemap', function () {
 // Determine the 'critical' CSS we need for first page load
 gulp.task('build:critical', function (cb) {
     return gulp.src(paths.html)
-        .pipe(critical({base: paths.dist, inline: true, minify: true, width: 320, height: 480}))
-        .on('error', function(err) { console.log(err.message); })
-        .pipe(gulp.dest(paths.dist));
+        .pipe(critical({base: paths.dist, src: '*.html', inline: true, minify: true, width: 320, height: 480}))
+        // .pipe(gulp.dest(paths.dist));
 });
 
 
