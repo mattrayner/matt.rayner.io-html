@@ -35,7 +35,7 @@ block content
                     p I’m a massive geek at heart, anything that goes ‘bleep bloop’, I’m all over it. In the past, I’ve acted as an IT Consultant for the Citizens Advice Bureau and the Head of IT for a community radio station. I’ve got a passion for products that make people’s lives easier; whether they take the stress out of a task or are accessible to everyone, that’s my sort of thing.
                     p In the past, I’ve been a graphic designer and a front end developer so I have extensive experience with both front end technologies and back end solutions (Wordpress CMS, MySQL, PHP, HAML, Responsive websites using Twitter Bootstrap, Javascript, JQuery, Ruby, CSS, iPhone, Android - all the usual suspects). I’ve also had exposure to web standards, ensuring the code I write is semantic and cross browser tested.
                     p At the age of 17 I wrote my first content management system in two weeks as part of a college project and my love of back end has grown from there. I’m interested in everything from speaking at events, to new job opportunities - get in touch and we’ll see what epic-ness ensues.
-                    h4 Learn more
+                    h4 Get in touch
                     .controls
                         a.control(href=baseUrl + 'matthew-rayner-tech-lead-cv.pdf', target='_blank', download=true) Get my CV
                         a.control(href='https://github.com/mattrayner',target='_blank') GitHub
@@ -45,9 +45,13 @@ block content
         .row
             .large-8.large-offset-2.columns
                 h2 Experience
-                each role in roles
-                    .media-object.stack-for-small
-                        .media-object-section
+                each role, index in roles
+                    a(id='experience'+index)
+                    .media-object
+                        .media-object-section.show-for-small-only
+                            a(href=role.company.url)
+                                img.company-avatar.extra-small.rounded-image(src='https://twitter.com/' + role.company.twitter + '/profile_image?size=original', alt=role.company.name + ' avatar')
+                        .media-object-section.hide-for-small-only
                             a(href=role.company.url)
                                 img.company-avatar.rounded-image(src='https://twitter.com/'+role.company.twitter+'/profile_image?size=original', alt=role.company.name+' avatar')
                         .media-object-section

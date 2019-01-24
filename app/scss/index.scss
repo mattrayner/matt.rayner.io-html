@@ -161,6 +161,19 @@ section#about-me {
       width: auto;
     }
 
+    img {
+      margin-right: auto;
+    }
+
+    .media-object-section a {
+      padding: 0;
+    }
+
+    a.pad {
+      display:inline-block;
+      margin: 0.3rem;
+    }
+
     .control {
       padding: 12px 20px;
       margin: 10px 10px 20px 0;

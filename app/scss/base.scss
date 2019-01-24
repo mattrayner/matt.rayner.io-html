@@ -16,7 +16,7 @@
 //@include foundation-button-group;
 //@include foundation-callout;
 //@include foundation-close-button;
-//@include foundation-menu;
+@include foundation-menu;
 //@include foundation-menu-icon;
 //@include foundation-drilldown-menu;
 //@include foundation-dropdown;
@@ -63,7 +63,7 @@ body{
 }
 
 h2 { border-bottom: 1px solid lighten($primary-color, 50%); margin-bottom: 1em; }
-h3 { color: $secondary-color; }
+h3 { color: $primary-color; }
 
 img, object, embed {
   max-width: 100%;
@@ -86,6 +86,21 @@ img, object, embed {
 
 .rounded-image {
   border-radius: 50%;
+}
+
+.company-avatar {
+  width: rem-calc(120px);
+  height: rem-calc(120px);
+
+  &.small {
+    width: rem-calc(75px);
+    height: rem-calc(75px);
+  }
+
+  &.extra-small {
+    width: rem-calc(54px);
+    height: rem-calc(54px);
+  }
 }
 
 .about-me-image {

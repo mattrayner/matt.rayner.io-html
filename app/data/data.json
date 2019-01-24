@@ -274,7 +274,8 @@
         "name": "BD Network",
         "url": "http://thisisbd.com",
         "twitter": "thisisbd"
-      }
+      },
+      "duplicate": true
     },
     {
       "title": "Ruby on Rails Developer",
@@ -307,7 +308,8 @@
         "name": "Business Centric Services Group (BCSG)",
         "url": "https://www.bcsg.com",
         "twitter": "BCSGcloud"
-      }
+      },
+      "duplicate": true
     },
     {
       "title": "Web Developer",
