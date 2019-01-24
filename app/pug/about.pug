@@ -42,5 +42,53 @@ block content
                         a.control(href='https://twitter.com/mattrayner',target='_blank') Twitter
                         a.control(href='https://uk.linkedin.com/in/mattrayner',target='_blank') LinkedIn
                         a.control(href='https://facebook.com/matthewrayner',target='_blank') Facebook
+        .row
+            .large-8.large-offset-2.columns
+                h2 Experience
+                each role in roles
+                    .media-object.stack-for-small
+                        .media-object-section
+                            a(href=role.company.url)
+                                img.company-avatar.rounded-image(src='https://twitter.com/'+role.company.twitter+'/profile_image?size=original', alt=role.company.name+' avatar')
+                        .media-object-section
+                            h4= role.title
+                            h5
+                                a(href=role.company.url)= role.company.name
+
+                            - momentDateFormat = 'Do MMM YYYY'
+                            - momentDateTimeFormat = 'YYYY-MM-DD'
+                            - momentRegex = /(\d)(st|nd|rd|th)/g
+                            - momentRegexReplacer = '$1<sup>$2</sup>'
+
+                            - startDate = moment(role.startDate).format(momentDateFormat).replace(momentRegex, momentRegexReplacer)
+                            - startDateTime = moment(role.startDate).format(momentDateTimeFormat)
+                            if role.endDate
+                                - endDate = moment(role.endDate).format(momentDateFormat).replace(momentRegex, momentRegexReplacer)
+                                - endDateTime = moment(role.endDate).format(momentDateTimeFormat)
+
+                                - diffInYears = moment(role.endDate).diff(moment(role.startDate), 'years')
+                                - diffInMonths = Math.ceil(moment(role.endDate).diff(moment(role.startDate), 'months', true)) % 12
+
+                                - months = 'months'
+                                - month = 'month'
+                                - years = 'years'
+                                - year = 'year'
+
+                                //    Creates '1 years and ' if there is more than one years service for a given role
+                                - yearString = diffInYears > 0 ? diffInYears+' '+((diffInYears > 1) ? years : year)+' and ' : ''
+                                p
+                                    time(datetime=startDateTime) !{startDate}
+                                    = " to "
+                                    time(datetime=endDateTime) !{endDate}
+                                    = " "
+                                    span (#{yearString}#{diffInMonths} #{(diffInMonths > 1) ? months : month})
+                            else
+                                p
+                                    time(datetime=startDateTime) !{startDate}
+                                    = " to present"
+
+                            if role.description
+                                p= role.description
+
 block append scripts
     script(src=baseUrl+'js/index.min.js', defer=true)

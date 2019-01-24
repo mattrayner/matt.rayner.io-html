@@ -170,7 +170,7 @@
         "types": [
           "language"
         ],
-        "title": "ERB"
+        "title": "Elixir"
       },
       {
         "types": [
@@ -221,5 +221,104 @@
         "title": "SASS"
       }
     ]
-  }
+  },
+  "roles": [
+    {
+      "title": "Technical Lead (Open Banking)",
+      "startDate": "2019-02-18",
+      "company": {
+        "name": "BGL Group/Bean",
+        "url": "https://www.bglgroup.co.uk",
+        "twitter": "The_BGL_Group"
+      }
+    },
+    {
+      "title": "Lead Backend Developer",
+      "startDate": "2017-01-09",
+      "endDate": "2019-02-15",
+      "description": "Working as Lead Backend Developer for the Parliamentary Digital Service, my focus was on the delivery of a new data-driven website and API for the Houses of Parliament.",
+      "company": {
+        "name": "Parliamentary Digital Service",
+        "url": "https://beta.parliament.uk",
+        "twitter": "ParliDigital"
+      }
+    },
+    {
+      "title": "Tech Lead",
+      "startDate": "2016-07-25",
+      "endDate": "2017-01-06",
+      "description": "Working as Tech Lead for Design Portfolio was an interesting challenge. I was appointed to help bring the digital team’s internal work into the 21st century, introducing CI/CD along with updated disaster recovery and High Availability setups.",
+      "company": {
+        "name": "Design Portfolio",
+        "url": "https://www.design-portfolio.co.uk",
+        "twitter": "WeAre_DP"
+      }
+    },
+    {
+      "title": "Digital Tech Lead",
+      "startDate": "2016-02-01",
+      "endDate": "2016-07-20",
+      "description": "Working as the Digital Tech Lead at BD, my role was a diverse and challenging one. I was involved with projects at every point from conception through to final delivery, managing a team of multi-skill, full stack developers, prioritising workload and training.",
+      "company": {
+        "name": "BD Network",
+        "url": "http://thisisbd.com",
+        "twitter": "thisisbd"
+      }
+    },
+    {
+      "title": "Full Stack Developer",
+      "startDate": "2015-04-20",
+      "endDate": "2016-01-29",
+      "description": "Working as interim Tech Lead for the digital team within BD, I was responsible for delivering a wide array of projects for their diverse client base. Everything from NFC powered promotions to augmented reality applications, single page websites to PHP and Ruby driven web apps.",
+      "company": {
+        "name": "BD Network",
+        "url": "http://thisisbd.com",
+        "twitter": "thisisbd"
+      }
+    },
+    {
+      "title": "Ruby on Rails Developer",
+      "startDate": "2014-10-20",
+      "endDate": "2015-04-17",
+      "description": "As a Full Stack Ruby on Rails developer at Springer Nature I was responsible for everything from Unix server administration and monitoring, to writing front end JavaScript and everything in-between.",
+      "company": {
+        "name": "Springer Nature",
+        "url": "https://www.springernature.com/gp",
+        "twitter": "SpringerNature"
+      }
+    },
+    {
+      "title": "Ruby on Rails Developer",
+      "startDate": "2014-01-18",
+      "endDate": "2014-10-17",
+      "description": "I worked as a Full Stack Ruby on Rails developer for BCSG, creating a new international SaaS cloud app designed to make starting, running, and managing a small business a piece of cake!",
+      "company": {
+        "name": "Business Centric Services Group (BCSG)",
+        "url": "https://www.bcsg.com",
+        "twitter": "BCSGcloud"
+      }
+    },
+    {
+      "title": "Web Developer",
+      "startDate": "2013-11-25",
+      "endDate": "2014-01-18",
+      "description": "As a web developer, my focus was largely on improving on the front end and back end technologies used within some of BCSG’s legacy projects as well as working on a new platform that the business could use to grow.",
+      "company": {
+        "name": "Business Centric Services Group (BCSG)",
+        "url": "https://www.bcsg.com",
+        "twitter": "BCSGcloud"
+      }
+    },
+    {
+      "title": "Web Developer",
+      "startDate": "2012-08-19",
+      "endDate": "2013-11-22",
+      "description": "In this role I primarily used HTML, CSS, JavaScript and JQuery to rebuild an existing website using best practices at the time.",
+      "company": {
+        "name": "Kent Union",
+        "url": "https://kentunion.co.uk",
+        "twitter": "KentUnion"
+      }
+    }
+  ]
 }

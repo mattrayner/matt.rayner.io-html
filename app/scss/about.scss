@@ -105,4 +105,9 @@ section#about-me {
   .about-me__content {
     width: 100%;
   }
+
+  .company-avatar {
+    width: rem-calc(120px);
+    height: rem-calc(120px);
+  }
 }

@@ -132,9 +132,12 @@ var build_pug_files = function(data_value){
 };
 
 var get_data_file = function(){
-    return JSON.parse(
+    var json = JSON.parse(
         fs.readFileSync('./app/data/data.json')
     );
+    json.moment = require('moment');
+
+    return json;
 };
 
 
