@@ -247,6 +247,7 @@ gulp.task('build:sitemap', function () {
 gulp.task('build:critical', function (cb) {
     return gulp.src(paths.html)
         .pipe(critical({base: paths.dist, inline: true, minify: true, width: 320, height: 480}))
+        .on('error', function(err) { console.log(err.message); })
         .pipe(gulp.dest(paths.dist));
 });
 
