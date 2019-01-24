@@ -173,22 +173,24 @@ section#about-me {
       display:inline-block;
       margin: 0.3rem;
     }
+  }
+}
 
-    .control {
-      padding: 12px 20px;
-      margin: 10px 10px 20px 0;
+.about-me__content {
+  .control {
+    padding: 12px 20px;
+    margin: 10px 10px 20px 0;
 
-      color: white;
-      font-weight: 700;
-      text-decoration: none;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
 
-      background-color: $primary-color;
-      display: inline-block;
+    background-color: $primary-color;
+    display: inline-block;
 
-      @include transition(all $transition-time--long $ease-in-out-quad);
+    @include transition(all $transition-time--long $ease-in-out-quad);
 
-      &:hover { text-decoration: none; }
-    }
+    &:hover { text-decoration: none; }
   }
 }
 

@@ -61,6 +61,12 @@
       },
       {
         "types": [
+          "language"
+        ],
+        "title": "Go"
+      },
+      {
+        "types": [
           "knowledge"
         ],
         "title": "Graph Databases"

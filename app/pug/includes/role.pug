@@ -1,0 +1,47 @@
+mixin roleMedia(role, includeDescription)
+    .media-object
+        .media-object-section.show-for-small-only
+            a(href=role.company.url)
+                img.company-avatar.extra-small.rounded-image(src='https://avatars.io/twitter/' + role.company.twitter, alt=role.company.name + ' avatar')
+        .media-object-section.hide-for-small-only
+            a(href=role.company.url)
+                img.company-avatar.rounded-image(src='https://avatars.io/twitter/' + role.company.twitter, alt=role.company.name + ' avatar')
+        .media-object-section
+            h4= role.title
+            h5
+                a(href=role.company.url)= role.company.name
+
+            - momentDateFormat = 'Do MMM YYYY'
+            - momentDateTimeFormat = 'YYYY-MM-DD'
+            - momentRegex = /(\d)(st|nd|rd|th)/g
+            - momentRegexReplacer = '$1<sup>$2</sup>'
+
+            - startDate = moment(role.startDate).format(momentDateFormat).replace(momentRegex, momentRegexReplacer)
+            - startDateTime = moment(role.startDate).format(momentDateTimeFormat)
+            if role.endDate
+                - endDate = moment(role.endDate).format(momentDateFormat).replace(momentRegex, momentRegexReplacer)
+                - endDateTime = moment(role.endDate).format(momentDateTimeFormat)
+
+                - diffInYears = moment(role.endDate).diff(moment(role.startDate), 'years')
+                - diffInMonths = Math.ceil(moment(role.endDate).diff(moment(role.startDate), 'months', true)) % 12
+
+                - months = 'months'
+                - month = 'month'
+                - years = 'years'
+                - year = 'year'
+
+                //    Creates '1 years and ' if there is more than one years service for a given role
+                - yearString = diffInYears > 0 ? diffInYears+' '+((diffInYears > 1) ? years : year)+' and ' : ''
+                p
+                    time(datetime=startDateTime) !{startDate}
+                    = " to "
+                    time(datetime=endDateTime) !{endDate}
+                    = " "
+                    span (#{yearString}#{diffInMonths} #{(diffInMonths > 1) ? months : month})
+            else
+                p
+                    time(datetime=startDateTime) !{startDate}
+                    = " to present"
+
+            if role.description && includeDescription
+                p= role.description

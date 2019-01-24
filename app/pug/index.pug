@@ -1,4 +1,6 @@
 extends ./layout/base
+include ./includes/role
+include ./includes/controls
 
 block append stylesheets
     link(rel='stylesheet', href=baseUrl+'css/index.min.css')
@@ -28,29 +30,20 @@ block content
                     a#mainContent(name='mainContent')
                     h2 About Me
                     p I’m Matt Rayner, a talented and dedicated full stack, polyglot tech lead. I’m looking for a challenging environment to test and improve my skills. I love learning new things and am an early adopter of bleeding edge technologies. Outside of work I’m involved in volunteering and a number of side projects. Everything from training students in multimedia and design skills, through to #[a(href='http://give.cat/',target='_blank') Give Cat] - a bookmarklet that replaces all the images on a website with pictures of cats (what more could you want, right?).
-
+                    hr
                     - if (roles.length)
                         - role = roles[0]
                         h3 Currently
-                        .media-object
-                            .media-object-section.show-for-small-only
-                                a(href=role.company.url)
-                                    img.company-avatar.extra-small.rounded-image(src='https://twitter.com/' + role.company.twitter + '/profile_image?size=original', alt=role.company.name + ' avatar')
-                            .media-object-section.hide-for-small-only
-                                a(href=role.company.url)
-                                    img.company-avatar.small.rounded-image(src='https://twitter.com/' + role.company.twitter + '/profile_image?size=original', alt=role.company.name + ' avatar')
-                            .media-object-section
-                                h4= role.title
-                                p.hide-for-small-only
-                                    a(href=role.company.url)= role.company.name
+                        +roleMedia(role, false)
 
                         h5 Previously
                         - for(i = 1; i < roles.length; i++)
                             - role = roles[i]
                             - if(!role.duplicate)
                                 a.pad(href='/about#experience'+i)
-                                    img.company-avatar.extra-small.rounded-image(src='https://twitter.com/' + role.company.twitter + '/profile_image?size=original', alt=role.title + ' at ' + role.company.name)
+                                    img.company-avatar.extra-small.rounded-image(src='https://avatars.io/twitter/' + role.company.twitter, alt=role.title + ' at ' + role.company.name)
 
+                    hr
 
                     .controls
                         a.control(role='button', href=baseUrl + 'about')
@@ -82,6 +75,8 @@ block content
                                         .title= skill.title
 
                                 .clearfix
+                        hr
+                        +aboutControls(baseUrl)
 
 block append scripts
     script(src=baseUrl+'js/index.min.js', defer=true)

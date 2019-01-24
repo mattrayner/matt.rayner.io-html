@@ -62,8 +62,8 @@ body{
   }
 }
 
-h2 { border-bottom: 1px solid lighten($primary-color, 50%); margin-bottom: 1em; }
-h3 { color: $primary-color; }
+hr { border: none; }
+h2, hr { border-bottom: 1px solid lighten($primary-color, 50%); margin-bottom: 1em; }
 
 img, object, embed {
   max-width: 100%;
