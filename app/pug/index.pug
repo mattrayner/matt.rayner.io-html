@@ -3,7 +3,7 @@ include ./includes/role
 include ./includes/controls
 
 block append stylesheets
-    link(rel='stylesheet', href=baseUrl+'css/index.min.css')
+    link(rel='stylesheet', href=baseUrl+'css/index.css')
 
 block content
     section#home-slide.primary-background
@@ -29,7 +29,7 @@ block content
                 .about-me__content
                     a#mainContent(name='mainContent')
                     h2 About Me
-                    p I’m Matt Rayner, a talented and dedicated full stack, polyglot tech lead. I’m looking for a challenging environment to test and improve my skills. I love learning new things and am an early adopter of bleeding edge technologies. Outside of work I’m involved in volunteering and a number of side projects. Everything from training students in multimedia and design skills, through to #[a(href='http://give.cat/',target='_blank') Give Cat] - a bookmarklet that replaces all the images on a website with pictures of cats (what more could you want, right?).
+                    p I’m Matt Rayner, a talented and dedicated full stack, polyglot tech lead. I’m looking for a challenging environment to test and improve my skills. I love learning new things and am an early adopter of bleeding edge technologies. Outside of work I’m involved in volunteering and a number of side projects. Everything from training students in multimedia and design skills, through to Give Cat - a bookmarklet that replaces all the images on a website with pictures of cats (what more could you want, right?).
                     hr
                     - if (roles.length)
                         - role = roles[0]

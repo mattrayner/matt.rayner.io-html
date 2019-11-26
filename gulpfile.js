@@ -1,29 +1,49 @@
-'use strict';
+// var gulp = require('gulp'),
+//     coffee = require('gulp-coffee'), // Languages
+//     sass = require('gulp-sass'),
+//     pug = require('gulp-pug'),
+//     uglify = require('gulp-uglify'), // Minification
+//     cssmin = require('gulp-cssmin'),
+//     coffeelint = require('gulp-coffeelint'), // Linters
+//     puglint = require('gulp-pug-lint'),
+//     rename = require('gulp-rename'),
+//     concat = require('gulp-concat'),
+//     data = require('gulp-data'),
+//     pump = require('pump'),
+//     critical = require('critical').stream,
+//     rev = require("gulp-rev"), // Cache Busting
+//     revReplace = require("gulp-rev-replace"),
+//     revdel = require('gulp-rev-delete-original'),
+//     fs = require('fs');
 
-// Import all of our gulp helpers
-var gulp = require('gulp'),
+var gulp = require("gulp"),
     coffee = require('gulp-coffee'), // Languages
+    uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
     pug = require('gulp-pug'),
-    mocha = require('gulp-mocha'),
-    uglify = require('gulp-uglify'), // Minification
-    cssmin = require('gulp-cssmin'),
     coffeelint = require('gulp-coffeelint'), // Linters
     puglint = require('gulp-pug-lint'),
     gutil = require('gulp-util'), // Utilities
-    rename = require('gulp-rename'),
+    rename = require("gulp-rename"),
+    postcss = require("gulp-postcss"),
     concat = require('gulp-concat'),
-    sitemap = require('gulp-sitemap'),
-    download = require('gulp-download'),
+    autoprefixer = require("autoprefixer"),
+    cssnano = require("cssnano"),
+    sourcemaps = require("gulp-sourcemaps"),
+    browserSync = require('browser-sync').create(),
+    moment = require('moment'),
     data = require('gulp-data'),
-    pump = require('pump'),
+    sitemap = require('gulp-sitemap'),
     critical = require('critical').stream,
     rev = require("gulp-rev"), // Cache Busting
     revReplace = require("gulp-rev-replace"),
     revdel = require('gulp-rev-delete-original'),
     fs = require('fs');
 
-// Reusable path strings
+var debug   = process.env.DEBUG    || false;
+var baseUrl = process.env.BASE_URL || "./";
+var isLive  = process.env.IS_LIVE  || true;
+
 var paths = {
     raw: {
         dist:   './dist/',
@@ -55,203 +75,149 @@ paths = {
         in:  [paths.raw.pug+'**/*.pug', '!'+paths.raw.pug+'layout/**/*.pug'],
         out: paths.raw.dist
     },
-    html: paths.raw.dist+'/**/*.html'
+    html: paths.raw.dist+'/*.html'
 };
 
-
-// Default task ran when you type `gulp`
-gulp.task('default', function() {
-    gulp.src('test.js', {read: false})
-        .pipe(mocha({reporter: 'nyan'}));
-
-    gulp.start('build:local');
-});
-
-
-// Main shared tasks
-gulp.task('build:shared', function(){
-    return gulp.start('lint', 'dist:assets');
-});
-
-// Local development
-gulp.task('build:local', function(){
-    return gulp.start('pug:local', 'build:shared')
-});
-
-// Development deploy
-gulp.task('build:dev', function() {
-    // return gulp.start('lint', 'coffee', 'sass', 'pug:dev', 'uglify:plugins', 'fetch-newest-analytics');
-    return gulp.start('pug:dev', 'build:shared')
-});
-
-// Live server
-gulp.task('build:live', function() {
-    // return gulp.start('lint', 'coffee', 'sass', 'pug:live', 'uglify:plugins', 'fetch-newest-analytics');
-    return gulp.start('pug:live', 'build:shared')
-});
-
-
-// Build pug files for different setups
-gulp.task('pug:local', function buildHTML() {
-    var pug_data = get_data_file();
-
-    pug_data.debug = false;
-    pug_data.baseUrl = '/';
-    pug_data.isLive = false;
-
-    return build_pug_files(pug_data)
-});
-
-gulp.task('pug:dev', function buildHTML() {
-    var pug_data = get_data_file();
-
-    pug_data.debug = false;
-    pug_data.baseUrl = '/';
-    pug_data.isLive = false;
-
-    return build_pug_files(pug_data)
-});
-
-gulp.task('pug:live', function buildHTML() {
-    var pug_data = get_data_file();
-
-    pug_data.debug = false;
-    pug_data.baseUrl = '/';
-    pug_data.isLive = true;
-
-    return build_pug_files(pug_data)
-});
-
-// Compile our pug files using the data passed
-var build_pug_files = function(data_value){
-    return gulp.src(paths.pugs.in)
-        .pipe(data(data_value))
-        .pipe(puglint())
-        .pipe(pug())
-        .pipe(gulp.dest(paths.pugs.out));
-};
 
 var get_data_file = function(){
     var json = JSON.parse(
         fs.readFileSync('./app/data/data.json')
     );
-    json.moment = require('moment');
+    json.moment = moment;
 
     return json;
 };
 
+function html() {
+    var pug_data = get_data_file();
 
-// Process all assets, starting with HTML
-gulp.task("dist:assets", ['dist:js'], function(){
+    pug_data.debug = debug;
+    pug_data.baseUrl = baseUrl;
+    pug_data.isLive = isLive;
+
+    return gulp.src(paths.pugs.in)
+        .pipe(data(pug_data))
+        .pipe(puglint())
+        .pipe(pug({}))
+        .pipe(gulp.dest(paths.pugs.out))
+        .pipe(browserSync.reload({ stream: true }));
+}
+
+function assets() {
+    gulp
+        .src(paths.scss.in)
+        // Initialize sourcemaps before compilation starts
+        .pipe(sourcemaps.init())
+        .pipe(sass({ outputStyle: 'compressed' })
+            .on("error", sass.logError))
+        // Use postcss with autoprefixer and compress the compiled file using cssnano
+        .pipe(postcss([autoprefixer({ cascade: false }), cssnano()]))
+        // Now add/write the sourcemaps
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(paths.scss.out));
+
+    gulp
+        .src(paths.css.in)
+        .pipe(rev())
+        .pipe(gulp.dest(paths.css.out))
+        .pipe(revdel())
+        .pipe(rev.manifest({ merge: true }))
+        .pipe(gulp.dest('.'))
+        // Add browsersync stream pipe after compilation
+        .pipe(browserSync.stream());
+
+    gulp.src(paths.coffee.in)
+        .pipe(coffeelint())
+        .pipe(coffeelint.reporter())
+        .pipe(coffee({bare: true}).on('error', gutil.log))
+        .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest(paths.coffee.out));
+
+    gulp.src(paths.js.in)
+        .pipe(uglify())
+        .pipe(gulp.dest(paths.js.out));
+
+    gulp.src(['./node_modules/jquery/dist/jquery.min.js', './app/vendor/jquery.parallax.js', './node_modules/foundation-sites/dist/js/foundation.js', './node_modules/isotope-layout/dist/isotope.pkgd.js'])
+        .pipe(concat('concat.js'))
+        .pipe(rename('plugins.min.js'))
+        .pipe(gulp.dest(paths.coffee.out));
+
+    gulp.src(paths.js.in)
+        .pipe(rev())
+        .pipe(gulp.dest(paths.js.out))
+        .pipe(revdel())
+        .pipe(rev.manifest({ merge: true }))
+        .pipe(gulp.dest('.'));
+
     var manifest = gulp.src("./rev-manifest.json");
 
     return gulp.src(paths.html)
         .pipe(revReplace({
             manifest: manifest
         }))
-        .pipe(gulp.dest(paths.dist));
-});
+        .pipe(gulp.dest(paths.dist))
+        .pipe(browserSync.stream());
+}
 
-
-// Compile our CSS (but first compile out sass)
-gulp.task("dist:css", ['sass'], function(){
-    return gulp.src(paths.css.in)
-        .pipe(rev())
-        .pipe(gulp.dest(paths.css.out))
-        .pipe(revdel())
-        .pipe(rev.manifest())
-        .pipe(gulp.dest('.'))
-});
-
-// Compile our SASS and minify
-gulp.task('sass', function () {
-    return gulp.src(paths.scss.in)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(cssmin())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(paths.scss.out))
-});
-
-
-// Compile out JS (but first download analytics, compile coffee and uglify plugins)
-gulp.task("dist:js", ['dist:css', 'fetch-analytics', 'coffee', 'uglify:plugins'], function(){
-    return gulp.src(paths.js.in)
-        .pipe(rev())
-        .pipe(gulp.dest(paths.js.out))
-        .pipe(revdel())
-        .pipe(rev.manifest({ merge: true }))
-        .pipe(gulp.dest('.'))
-});
-
-// Fetch the latest analytics file from google and cache it locally (for google pagespeed)
-gulp.task('fetch-analytics', function() {
-    return download('https://www.google-analytics.com/analytics.js')
-        .pipe(gulp.dest(paths.coffee.out))
-});
-
-// Compile our coffee script files
-gulp.task('coffee', function() {
-    return gulp.src(paths.coffee.in)
-        .pipe(coffee({bare: true}).on('error', gutil.log))
-        .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(paths.coffee.out))
-});
-
-// Uglify all of our plugins into one file
-gulp.task('uglify:plugins', function (cb) {
-    pump([
-            gulp.src(['./node_modules/jquery/dist/jquery.min.js', './app/vendor/jquery.parallax.js', './node_modules/foundation-sites/dist/foundation.js', './node_modules/isotope-layout/dist/isotope.pkgd.js']),
-            concat('concat.js'),
-            rename('plugins.min.js'),
-            gulp.dest(paths.coffee.out)
-        ],
-        cb
-    );
-});
-
-
-// Lint our pug application files (but first our coffee files)
-gulp.task('lint', ['lint:coffee'], function () {
-    return gulp.src(paths.pugs.in[0])
-        .pipe(data({
-            debug: false,
-            baseUrl: '/',
-            isLive: false
+function buildSitemap() {
+    return gulp.src(paths.html, { read: false })
+        .pipe(sitemap({
+            siteUrl: baseUrl,
+            changefreq: 'monthly'
         }))
-        .pipe(puglint());
-});
+        .pipe(gulp.dest(paths.dist));
+}
 
-// Lint our coffee files
-gulp.task('lint:coffee', function () {
-    return gulp.src(paths.coffee.in)
-        .pipe(coffeelint())
-        .pipe(coffeelint.reporter());
-});
-
-
-// Generate a sitemap for our site
-gulp.task('build:sitemap', function () {
-    gulp.src(paths.html, {
-        read: false
-    })
-    .pipe(sitemap({
-        siteUrl: 'https://matt.rayner.io/',
-        changefreq: 'monthly'
-    }))
-    .pipe(gulp.dest(paths.dist));
-});
-
-
-// Determine the 'critical' CSS we need for first page load
-gulp.task('build:critical', function (cb) {
+function calculateCritical() {
     return gulp.src(paths.html)
         .pipe(critical({base: paths.dist, inline: true, minify: true, width: 1300, height: 900}))
         .pipe(gulp.dest(paths.dist));
-});
+}
 
 
-// Rerun the default when a file changes
-gulp.task('watch', function() {
-    gulp.watch([paths.coffee.in, paths.scss.in, paths.pugs.in[0]], ['default']);
-});
+// A simple task to reload the page
+function reload() {
+    browserSync.reload();
+}
+
+// Add browsersync initialization at the start of the watch task
+function watch() {
+    browserSync.init({
+        // You can tell browserSync to use this directory and serve it as a mini-server
+        server: {
+            baseDir: "./dist"
+        }
+        // If you are already serving your website locally using something like apache
+        // You can use the proxy setting to proxy that instead
+        // proxy: "yourlocal.dev"
+    });
+    gulp.watch(paths.scss.in, assets);
+    gulp.watch(paths.pugs.in, html);
+    gulp.watch(paths.coffee.in, assets);
+    gulp.watch(paths.html, reload);
+}
+
+/*
+ * Specify if tasks run in series or parallel using `gulp.series` and `gulp.parallel`
+ */
+var build = gulp.series(html, assets);
+var build_watch = gulp.parallel(gulp.series(html, assets), watch);
+var release = gulp.series(html, assets, buildSitemap, calculateCritical);
+
+// Don't forget to expose the task!
+exports.watch = watch;
+
+// Expose the task by exporting it
+// This allows you to run it from the commandline using
+// $ gulp style
+exports.assets = assets;
+exports.html = html;
+exports.build = build;
+exports.watch = build_watch;
+exports.release = release;
+
+/*
+ * Define default task that can be called by just running `gulp` from cli
+ */
+gulp.task('default', build);

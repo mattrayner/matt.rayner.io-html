@@ -12,7 +12,7 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-    - make deploy
+    - make build && make deploy-ci
   on:
     branch: master
 

@@ -150,6 +150,12 @@
         "types": [
           "framework"
         ],
+        "title": "Terraform"
+      },
+      {
+        "types": [
+          "framework"
+        ],
         "title": "Vuforia"
       }
     ],
@@ -182,6 +188,12 @@
         "types": [
           "language"
         ],
+        "title": "Elm"
+      },
+      {
+        "types": [
+          "language"
+        ],
         "title": "HAML"
       },
       {
@@ -201,6 +213,18 @@
           "software"
         ],
         "title": "Photoshop"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "React"
+      },
+      {
+        "types": [
+          "framework"
+        ],
+        "title": "React Native"
       },
       {
         "types": [
@@ -230,10 +254,22 @@
   },
   "roles": [
     {
-      "title": "Technical Lead (Open Banking)",
-      "startDate": "2019-02-18",
+      "title": "Technical Lead",
+      "startDate": "2019-11-04",
+      "description": "Following the absorption of my previous role at BGL into Compare the Market (a subsidiary), I continue to be focused on the delivery of open banking capabilities into the organisation. Just this time, with more meerkats!",
       "company": {
-        "name": "BGL Group/Bean",
+        "name": "Compare the Market",
+        "url": "https://www.comparethemarket.com",
+        "twitter": "comparethemkt"
+      }
+    },
+    {
+      "title": "Technical Lead",
+      "startDate": "2019-02-18",
+      "endDate": "2019-11-01",
+      "description": "As Technical Lead at BGL Group, I primarily worked on bringing Open Banking capabilities to the organisation, including implementing multiple APIs and writing an administration portal.\n\nMy responsibilities also extended to designing and implementing the project's infrastructure in AWS.",
+      "company": {
+        "name": "BGL Group",
         "url": "https://www.bglgroup.co.uk",
         "twitter": "The_BGL_Group"
       }
