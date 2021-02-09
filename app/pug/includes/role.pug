@@ -2,10 +2,10 @@ mixin roleMedia(role, includeDescription)
     .media-object
         .media-object-section.show-for-small-only
             a(href=role.company.url)
-                img.company-avatar.extra-small.rounded-image(src=' https://twitter-avatar.now.sh/' + role.company.twitter, alt=role.company.name + ' avatar')
+                img.company-avatar.extra-small.rounded-image(src=baseUrl + 'assets/images/employment/' + role.company.twitter + '.jpg', alt=role.company.name + ' avatar')
         .media-object-section.hide-for-small-only
             a(href=role.company.url)
-                img.company-avatar.rounded-image(src=' https://twitter-avatar.now.sh/' + role.company.twitter, alt=role.company.name + ' avatar')
+                img.company-avatar.rounded-image(src=baseUrl + 'assets/images/employment/' + role.company.twitter + '.jpg', alt=role.company.name + ' avatar')
         .media-object-section
             h4= role.title
             h5

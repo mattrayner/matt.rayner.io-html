@@ -41,7 +41,7 @@ block content
                             - role = roles[i]
                             - if(!role.duplicate)
                                 a.pad(href='/about#experience'+i)
-                                    img.company-avatar.extra-small.rounded-image(src='https://twitter-avatar.now.sh/' + role.company.twitter, alt=role.title + ' at ' + role.company.name)
+                                    img.company-avatar.extra-small.rounded-image(src=baseUrl + 'assets/images/employment/' + role.company.twitter + '.jpg', alt=role.title + ' at ' + role.company.name)
 
                     hr
 
