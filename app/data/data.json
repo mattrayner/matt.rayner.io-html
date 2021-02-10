@@ -33,7 +33,7 @@
         "types": [
           "framework"
         ],
-        "title": "Alexa Skill Kit"
+        "title": "Alexa Skills Kit"
       },
       {
         "types": [
@@ -126,6 +126,12 @@
           "language"
         ],
         "title": "PHP"
+      },
+      {
+        "types": [
+          "language"
+        ],
+        "title": "Postgres"
       },
       {
         "types": [
@@ -261,18 +267,48 @@
         "name": "Compare the Market",
         "url": "https://www.comparethemarket.com",
         "twitter": "comparethemkt"
-      }
+      },
+      "skills": [
+        "Agile (Kanban)",
+        "Amazon Web Services",
+        "Docker",
+        "Elixir",
+        "ELM",
+        "Lambda",
+        "Networking",
+        "Open Banking",
+        "Postgres",
+        "Python",
+        "Terraform"
+      ]
     },
     {
       "title": "Technical Lead",
       "startDate": "2019-02-18",
       "endDate": "2019-11-01",
-      "description": "As Technical Lead at BGL Group, I primarily worked on bringing Open Banking capabilities to the organisation, including implementing multiple APIs and writing an administration portal.\n\nMy responsibilities also extended to designing and implementing the project's infrastructure in AWS.",
+      "description": "As Technical Lead at BGL Group, I primarily worked on bringing Open Banking capabilities to the organisation, including implementing multiple APIs and writing an administration portal.\n\nMy responsibilities also extended to designing and implementing the project's PCI compliant infrastructure in AWS with Terraform.",
       "company": {
         "name": "BGL Group",
         "url": "https://www.bglgroup.co.uk",
         "twitter": "The_BGL_Group"
-      }
+      },
+      "skills": [
+        "Agile (Kanban)",
+        "AWS",
+        "Docker",
+        "Elixir",
+        "ELM",
+        "Lambda",
+        "Networking",
+        "NodeJS",
+        "Open Banking",
+        "Postgres",
+        "Rails",
+        "React",
+        "React Native",
+        "Ruby",
+        "Terraform"
+      ]
     },
     {
       "title": "Lead Backend Developer",
@@ -281,9 +317,23 @@
       "description": "Working as Lead Backend Developer for the Parliamentary Digital Service, my focus was on the delivery of a new data-driven website and API for the Houses of Parliament.",
       "company": {
         "name": "Parliamentary Digital Service",
-        "url": "https://beta.parliament.uk",
+        "url": "https://parliament.uk",
         "twitter": "ParliDigital"
-      }
+      },
+      "skills": [
+        "Agile (Scrum)",
+        "Alexa Skills Kit",
+        "AWS",
+        "Docker",
+        "Go",
+        "Graph Databases",
+        "Rails",
+        "RSpec",
+        "Ruby",
+        "SparQL",
+        "Terraform",
+        "NodeJS"
+      ]
     },
     {
       "title": "Tech Lead",
@@ -294,7 +344,17 @@
         "name": "Design Portfolio",
         "url": "https://www.design-portfolio.co.uk",
         "twitter": "WeAre_DP"
-      }
+      },
+      "skills": [
+        "CSS3",
+        "Docker",
+        "HTML5",
+        "JavaScript",
+        "MySQL",
+        "Networking",
+        "PHP",
+        "SASS"
+      ]
     },
     {
       "title": "Digital Tech Lead",
@@ -305,7 +365,29 @@
         "name": "BD Network",
         "url": "http://thisisbd.com",
         "twitter": "thisisbd"
-      }
+      },
+      "skills": [
+        "C# (Unity)",
+        "CoffeeScript",
+        "Cordova",
+        "CSS3",
+        "HAML",
+        "HTML5",
+        "Java (Android)",
+        "JavaScript",
+        "MySQL",
+        "*NIX Bash",
+        "NodeJS",
+        "Objective-C (iOS)",
+        "Photoshop",
+        "PHP",
+        "Rails",
+        "RSpec",
+        "Ruby",
+        "SASS",
+        "Swift (iOS & MacOS)",
+        "Vuforia"
+      ]
     },
     {
       "title": "Full Stack Developer",
@@ -317,7 +399,20 @@
         "url": "http://thisisbd.com",
         "twitter": "thisisbd"
       },
-      "duplicate": true
+      "duplicate": true,
+      "skills": [
+        "C# (Unity)",
+        "Cordova",
+        "CSS3",
+        "HTML5",
+        "Java (Android)",
+        "JavaScript",
+        "MySQL",
+        "Objective-C (iOS)",
+        "Photoshop",
+        "PHP",
+        "Vuforia"
+      ]
     },
     {
       "title": "Ruby on Rails Developer",
@@ -328,7 +423,14 @@
         "name": "Springer Nature",
         "url": "https://www.springernature.com/gp",
         "twitter": "SpringerNature"
-      }
+      },
+      "skills": [
+        "Agile (Scrum)",
+        "MySQL",
+        "Rails",
+        "RSpec",
+        "Ruby"
+      ]
     },
     {
       "title": "Ruby on Rails Developer",
@@ -339,7 +441,21 @@
         "name": "Business Centric Services Group (BCSG)",
         "url": "https://www.bcsg.com",
         "twitter": "BCSGcloud"
-      }
+      },
+      "skills": [
+        "Agile (Kanban)",
+        "Coffee",
+        "CSS3",
+        "HAML",
+        "HTML5",
+        "JavaScript",
+        "MySQL",
+        "Photoshop",
+        "Rails",
+        "RSpec",
+        "Ruby",
+        "SASS"
+      ]
     },
     {
       "title": "Web Developer",
@@ -351,7 +467,15 @@
         "url": "https://www.bcsg.com",
         "twitter": "BCSGcloud"
       },
-      "duplicate": true
+      "duplicate": true,
+      "skills": [
+        "Agile (Kanban)",
+        "CSS3",
+        "HTML5",
+        "JavaScript",
+        "Photoshop",
+        "PHP"
+      ]
     },
     {
       "title": "Web Developer",
@@ -362,7 +486,16 @@
         "name": "Kent Union",
         "url": "https://kentunion.co.uk",
         "twitter": "KentUnion"
-      }
+      },
+      "skills": [
+        "CSS3",
+        "HTML5",
+        "Illustrator",
+        "JavaScript",
+        "MySQL",
+        "Photoshop",
+        "PHP"
+      ]
     }
   ]
 }

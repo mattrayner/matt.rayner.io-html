@@ -198,47 +198,6 @@ section#skills {
   margin-bottom: 4em;
 
   section { float: left; width: 100%; }
-
-  ul.skills {
-    margin: 0;
-    list-style: none;
-    @include transition(height .3s ease-in-out);
-
-    li.skill {
-      text-align: center;
-
-      margin: .25em;
-      float: left;
-
-      max-width: 300px;
-      width: 40%;
-
-      &.major {
-        font-weight: 500;
-        font-size: large;
-
-        &>div {
-          @include addRowPadding(.34em);
-          padding-left: .25em;
-          padding-right: .25em;
-        }
-      }
-
-      &>div {
-        border: 1px solid $primary-color;
-        color: $primary-color;
-
-        @include addRowPadding(.5em);
-        padding-left: .25em;
-        padding-right: .25em;
-      }
-
-      @media (min-width: 641px) {
-        width: 190px;
-        margin: .5em;
-      }
-    }
-  }
 }
 
 section#case-studies {

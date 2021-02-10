@@ -1,4 +1,4 @@
-mixin roleMedia(role, includeDescription)
+mixin roleMedia(role, includeDescription, includeSkills)
     .media-object
         .media-object-section.show-for-small-only
             a(href=role.company.url)
@@ -45,3 +45,10 @@ mixin roleMedia(role, includeDescription)
 
             if role.description && includeDescription
                 p= role.description
+
+            if role.skills && includeSkills
+                h6 Skills
+                ul.skills
+                    each skill in role.skills
+                        li.skill.text-small
+                            .title=skill
