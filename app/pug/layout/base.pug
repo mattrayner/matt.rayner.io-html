@@ -15,7 +15,8 @@ html(lang="en")
 
     // SEO
     meta(charset='utf-8')
-    link(rel='canonical',href=baseUrl)
+    - canonicalUrl = canonicalUrl || baseUrl
+    link(rel='canonical',href=canonicalUrl)
 
     - keywords = keywords || 'matt,rayner,ruby,tech,lead,php,cordova,ios,android,vuforia'
     meta(name='keywords', content=keywords)
@@ -143,7 +144,7 @@ html(lang="en")
           li
             a(href=baseUrl + 'about') About me
           li
-            a(href=baseUrl + 'matthew-rayner-tech-lead-cv.pdf', target='_blank', download=true) Get my CV
+            a(href=baseUrl + 'matthew-rayner-tech-lead-cv.pdf', target='_blank', download=true, rel='noopener') Get my CV
 
     block content
 
@@ -161,15 +162,15 @@ html(lang="en")
                 li
                   a(href=baseUrl + 'about') About me
                 li
-                  a(href=baseUrl + 'matthew-rayner-tech-lead-cv.pdf', target='_blank', download=true) Get my CV
+                  a(href=baseUrl + 'matthew-rayner-tech-lead-cv.pdf', target='_blank', download=true, rel='noopener') Get my CV
           .small-12.medium-3.columns.social.text-right
-            a(href='https://github.com/mattrayner',target='_blank')
+            a(href='https://github.com/mattrayner', target='_blank', rel='noopener')
               img(src=baseUrl + 'assets/images/social-circle-github.svg', alt='Matt Rayner on GitHub')
-            a(href='https://twitter.com/mattrayner',target='_blank')
+            a(href='https://twitter.com/mattrayner', target='_blank', rel='noopener')
               img(src=baseUrl + 'assets/images/social-circle-twitter.svg', alt='@mattrayner on Twitter')
-            a(href='https://uk.linkedin.com/in/mattrayner',target='_blank')
+            a(href='https://uk.linkedin.com/in/mattrayner', target='_blank', rel='noopener')
               img(src=baseUrl + 'assets/images/social-circle-linkedin.svg', alt='Matt Rayner on LinkedinIn')
-            a(href='https://facebook.com/matthewrayner',target='_blank')
+            a(href='https://facebook.com/matthewrayner', target='_blank', rel='noopener')
                   img(src=baseUrl + 'assets/images/social-circle-facebook.svg', alt='Matt Rayner on Facebook')
 
         .row
