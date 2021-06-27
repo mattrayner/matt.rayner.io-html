@@ -10,13 +10,11 @@ before_deploy:
 
 deploy:
   - provider: script
-    cleanup: false
     script:
       - make build && make deploy-ci
     on:
       branch: master
   - provider: script
-    cleanup: false
     script:
       - make build && make deploy-ci
     on:
