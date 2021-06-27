@@ -14,6 +14,6 @@ deploy:
   script:
     - make build && make deploy-ci
   on:
-    branch: master
-    tags: true
+    all_branches: true
+    condition: $TRAVIS_BRANCH ~= ^master$ || [ -z "${TRAVIS_TAG}" ]
 
