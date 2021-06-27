@@ -258,6 +258,15 @@
       }
     ]
   },
+  "certifications": [
+    {
+      "title": "AWS Certified Developer Associate",
+      "issueDate": "2021-02-18",
+      "expiryDate": "2024-02-18",
+      "image": "aws-dev-associate.png",
+      "url": "https://www.credly.com/badges/04ae8d72-ef14-4249-89fc-2410e567e702?source=linked_in_profile"
+    }
+  ],
   "roles": [
     {
       "title": "Technical Lead",

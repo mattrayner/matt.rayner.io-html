@@ -1,5 +1,6 @@
 extends ./layout/base
 include ./includes/role
+include ./includes/certification
 include ./includes/controls
 
 block variables
@@ -40,6 +41,12 @@ block content
                     p At the age of 17 I wrote my first content management system in two weeks as part of a college project and my love of back end has grown from there. I’m interested in everything from speaking at events, to new job opportunities - get in touch and we’ll see what epic-ness ensues.
                     h4 Get in touch
                 +aboutControls(baseUrl)
+        .row
+            .large-8.large-offset-2.columns
+                h2 Certifications
+                each certification, index in certifications
+                    a(id='certification'+index)
+                    +certificationMedia(certification)
         .row
             .large-8.large-offset-2.columns
                 h2 Experience

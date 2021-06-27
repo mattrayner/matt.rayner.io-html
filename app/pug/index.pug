@@ -37,13 +37,19 @@ block content
                         +roleMedia(role, false, false)
 
                         h5 Previously
-                        - for(i = 1; i < roles.length; i++)
+                        each role, i in roles
                             - role = roles[i]
                             - if(!role.duplicate)
                                 a.pad(href='/about#experience'+i)
                                     img.company-avatar.extra-small.rounded-image(src=baseUrl + 'assets/images/employment/' + role.company.twitter + '.jpg', alt=role.title + ' at ' + role.company.name)
 
-                    hr
+                        hr
+                    - if (certifications.length)
+                        h5 Certifications
+                        each certification, i in certifications
+                            a.pad(href='/about#certification' + i)
+                                img.company-avatar.rounded-image(src=baseUrl + 'assets/images/certifications/' + certification.image, alt=certification.title)
+                        hr
 
                     .controls
                         a.control(role='button', href=baseUrl + 'about')

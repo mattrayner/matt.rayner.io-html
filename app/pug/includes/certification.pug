@@ -1,0 +1,32 @@
+mixin certificationMedia(certification)
+    -  image = 'certificate.jpg'; if(certification.image) { image = certification.image }
+    .media-object
+        .media-object-section.show-for-small-only
+            a(href=certification.url, target="_blank", rel='noopener')
+                img.company-avatar.extra-small.rounded-image(src=baseUrl + 'assets/images/certifications/' + image, alt=certification.title + ' icon')
+        .media-object-section.hide-for-small-only
+            a(href=certification.url, target="_blank", rel='noopener')
+                img.company-avatar.rounded-image(src=baseUrl + 'assets/images/certifications/' + image, alt=certification.title + ' icon')
+        .media-object-section
+            h4= certification.title
+
+            - momentDateFormat = 'Do MMM YYYY'
+            - momentDateTimeFormat = 'YYYY-MM-DD'
+            - momentRegex = /(\d)(st|nd|rd|th)/g
+            - momentRegexReplacer = '$1<sup>$2</sup>'
+
+            - issueDate = moment(certification.issueDate).format(momentDateFormat).replace(momentRegex, momentRegexReplacer)
+            - issueDateTime = moment(certification.issueDate).format(momentDateTimeFormat)
+
+            p
+                = "Issued "
+                time(datetime=issueDateTime) !{issueDate}
+
+                if certification.expiryDate
+                    - expiryDate = moment(certification.expiryDate).format(momentDateFormat).replace(momentRegex, momentRegexReplacer)
+                    - expiryDateTime = moment(certification.expiryDate).format(momentDateTimeFormat)
+
+                    = " | Expires "
+                    time(datetime=expiryDateTime) !{expiryDate}
+            p
+                a(href=certification.url, target="_blank", rel='noopener') View certification
