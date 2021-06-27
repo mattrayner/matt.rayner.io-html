@@ -9,11 +9,16 @@ before_deploy:
   - export PATH=$PATH:$HOME/.local/bin # put aws in the path
 
 deploy:
-  provider: script
-  skip_cleanup: true
-  script:
-    - make build && make deploy-ci
-  on:
-    all_branches: true
-    condition: $TRAVIS_BRANCH ~= ^master$ || [ -z "${TRAVIS_TAG}" ]
+  - provider: script
+    cleanup: false
+    script:
+      - make build && make deploy-ci
+    on:
+      branch: master
+  - provider: script
+    cleanup: false
+    script:
+      - make build && make deploy-ci
+    on:
+      tags: true
 
