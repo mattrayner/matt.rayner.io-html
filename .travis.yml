@@ -15,4 +15,5 @@ deploy:
     - make build && make deploy-ci
   on:
     branch: master
+    tags: true
 
