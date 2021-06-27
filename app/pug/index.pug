@@ -39,7 +39,7 @@ block content
                         h5 Previously
                         each role, i in roles
                             - role = roles[i]
-                            - if(!role.duplicate)
+                            - if(i !== 0 && !role.duplicate )
                                 a.pad(href='/about#experience'+i)
                                     img.company-avatar.extra-small.rounded-image(src=baseUrl + 'assets/images/employment/' + role.company.twitter + '.jpg', alt=role.title + ' at ' + role.company.name)
 
