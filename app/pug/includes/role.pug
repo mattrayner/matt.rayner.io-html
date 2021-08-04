@@ -22,7 +22,9 @@ mixin roleMedia(role, includeDescription, includeSkills)
                 - endDate = moment(role.endDate).format(momentDateFormat).replace(momentRegex, momentRegexReplacer)
                 - endDateTime = moment(role.endDate).format(momentDateTimeFormat)
 
-                - diffInYears = moment(role.endDate).diff(moment(role.startDate), 'years')
+                // Adjust end date by +2 days to account for CTM start/end of 2 days difference
+                - adjustedEnd = (role.shiftEnd && role.shiftEnd > 0) ? moment(role.endDate).add(role.shiftEnd, 'days') : moment(role.endDate)
+                - diffInYears = moment(adjustedEnd).diff(moment(role.startDate), 'years')
                 - diffInMonths = Math.ceil(moment(role.endDate).diff(moment(role.startDate), 'months', true)) % 12
 
                 - months = 'months'
@@ -31,13 +33,18 @@ mixin roleMedia(role, includeDescription, includeSkills)
                 - year = 'year'
 
                 //    Creates '1 years and ' if there is more than one years service for a given role
-                - yearString = diffInYears > 0 ? diffInYears+' '+((diffInYears > 1) ? years : year)+' and ' : ''
+                - yearString = diffInYears > 0 ? diffInYears+' '+((diffInYears > 1) ? years : year) : ''
+                // If we have more than 1 year, and more than 0 months i.e. 1 year and 1 month, add an and. If the diff in years is 0, or the start and end month are the same, dont add the 'and'
+                // i.e. 1 year || 9 months but not 1 year 0 months or 0 years and 9 months
+                - seperatorString = (diffInYears > 0 && diffInMonths !== 0) ? ' and ' : ''
+                // If there is a month difference, add the amount along with  \'month\' or \'months\' depending i.e. 1 month vs 3 months\n'+
+                - monthString = (diffInMonths > 0) ? diffInMonths + ' ' + ((diffInMonths > 1) ? months : month) :  ''
                 p
                     time(datetime=startDateTime) !{startDate}
                     = " to "
                     time(datetime=endDateTime) !{endDate}
                     = " "
-                    span (#{yearString}#{diffInMonths} #{(diffInMonths > 1) ? months : month})
+                    span (#{yearString}#{seperatorString}#{monthString})
             else
                 p
                     time(datetime=startDateTime) !{startDate}

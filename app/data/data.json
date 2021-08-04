@@ -269,8 +269,19 @@
   ],
   "roles": [
     {
+      "title": "Technical Lead (International)",
+      "startDate": "2021-11-03",
+      "company": {
+        "name": "Subway",
+        "url": "https://subway.com",
+        "twitter": "subway"
+      }
+    },
+    {
       "title": "Technical Lead",
       "startDate": "2019-11-04",
+      "endDate": "2021-11-02",
+      "shiftEnd": 2,
       "description": "Following the absorption of my previous role at BGL into Compare the Market (a subsidiary), I continue to be focused on the delivery of open banking capabilities into the organisation. Just this time, with more meerkats!",
       "company": {
         "name": "Compare the Market",
