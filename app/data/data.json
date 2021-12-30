@@ -148,6 +148,12 @@
       },
       {
         "types": [
+          "skill"
+        ],
+        "title": "Stakeholder Management"
+      },
+      {
+        "types": [
           "language"
         ],
         "title": "Swift (iOS & MacOS)"
@@ -272,11 +278,18 @@
       "title": "Digital Technical Lead EMEA",
       "startDate": "2021-11-03",
       "location": "Remote",
+      "description": "Working with regional delivery teams and external partners across EMEA I am responsible for digital initiatives including third party delivery integrations (Deliveroo, Uber Eats, Just Eat, Simplify, Door Dash, etc), mobile order & pay and api design and development.",
       "company": {
         "name": "Subway",
         "url": "https://subway.com",
         "twitter": "subway"
-      }
+      },
+      "skills": [
+        "Amazon Web Services",
+        "NodeJS",
+        "Serverless",
+        "Stakeholder Management"
+       ]
     },
     {
       "title": "Technical Lead",
