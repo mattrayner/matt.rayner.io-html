@@ -230,6 +230,12 @@
         "types": [
           "language"
         ],
+        "title": "Python"
+      },
+      {
+        "types": [
+          "language"
+        ],
         "title": "React"
       },
       {
@@ -339,6 +345,7 @@
         "NodeJS",
         "Open Banking",
         "Postgres",
+        "Python",
         "Rails",
         "React",
         "React Native",
