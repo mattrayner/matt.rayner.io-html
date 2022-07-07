@@ -43,7 +43,7 @@
     "gulp-util": "^3.0.7",
     "isotope-layout": "^3.0.1",
     "jquery": "^3.5.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "pump": "^1.0.1",
     "shipit-cli": "^5.1.0",
     "shipit-deploy": "^2.2.0",
