@@ -63,6 +63,12 @@
         "types": [
           "language"
         ],
+        "title": "Elixir"
+      },
+      {
+        "types": [
+          "language"
+        ],
         "title": "Go"
       },
       {
@@ -137,6 +143,12 @@
         "types": [
           "language"
         ],
+        "title": "Python"
+      },
+      {
+        "types": [
+          "language"
+        ],
         "title": "Ruby"
       },
       {
@@ -189,12 +201,6 @@
           "language"
         ],
         "title": "C# (Unity)"
-      },
-      {
-        "types": [
-          "language"
-        ],
-        "title": "Elixir"
       },
       {
         "types": [
@@ -284,7 +290,7 @@
       "title": "Digital Technical Lead EMEA",
       "startDate": "2021-11-03",
       "location": "Remote",
-      "description": "Working with regional delivery teams and external partners across EMEA, I am responsible for digital initiatives including mobile order and pay, third party delivery integrations (Deliveroo, Uber Eats, Just Eat, Simplify, Door Dash, etc) as well as API design and development.",
+      "description": "Working with regional delivery teams and external partners across EMEA, I am responsible for delivering digital products including mobile order, third party delivery (Deliveroo, Uber Eats, Just Eat, etc) and digital menu boards using event driven, serverless technologies on AWS.",
       "company": {
         "name": "Subway",
         "url": "https://subway.com",
@@ -303,7 +309,7 @@
       "endDate": "2021-11-02",
       "shiftEnd": 2,
       "location": "Remote",
-      "description": "Following the absorption of my previous role at BGL into Compare the Market (a subsidiary), I continued to be focused on the delivery of open banking capabilities into the organisation. Just this time, with more meerkats!",
+      "description": "Following the absorption of my previous role at BGL into Compare the Market (a subsidiary), I continued to focus on the delivery of open banking capabilities into the organisation with Elixir. My role also focused on IaC with Terraform.",
       "company": {
         "name": "Compare the Market",
         "url": "https://www.comparethemarket.com",
@@ -328,7 +334,7 @@
       "startDate": "2019-02-18",
       "endDate": "2019-11-01",
       "location": "Remote",
-      "description": "As Technical Lead at BGL Group, I primarily worked on bringing Open Banking capabilities to the organisation, including implementing multiple APIs and writing an administration portal.\n\nMy responsibilities also extended to designing and implementing the project's PCI compliant infrastructure in AWS with Terraform.",
+      "description": "As Technical Lead at BGL Group, I primarily worked on bringing Open Banking capabilities to the organisation, including delivering multiple APIs written in combinations Ruby and Elixir, as well as an administration portal in Elm. My responsibilities included designing and implementing the project’s PCI compliant infrastructure in AWS with IaC via Terraform.",
       "company": {
         "name": "BGL Group",
         "url": "https://www.bglgroup.co.uk",
@@ -358,7 +364,7 @@
       "startDate": "2017-01-09",
       "endDate": "2019-02-15",
       "location": "Westminster, London, UK",
-      "description": "Working as Lead Backend Developer for the Parliamentary Digital Service, my focus was on the delivery of a new data-driven website and API for the Houses of Parliament.",
+      "description": "Working as Lead Backend Developer for the Parliamentary Digital Service, my focus was on the delivery of new data-driven websites and APIs for the Houses of Parliament. Whilst working here I created a Node, Ruby and Go architecture deployed to AWS using a combination of Terraform and Go.CD that allowed Parliament to deliver a high performance, open and accessible experience for users across the world.",
       "company": {
         "name": "Parliamentary Digital Service",
         "url": "https://parliament.uk",
@@ -384,7 +390,7 @@
       "startDate": "2016-07-25",
       "endDate": "2017-01-06",
       "location": "Canary Wharf, London, UK",
-      "description": "Working as Tech Lead for Design Portfolio was an interesting challenge. I was appointed to help bring the digital team’s internal work into the 21st century, introducing CI/CD along with updated disaster recovery and High Availability setups.",
+      "description": "Working as Tech Lead for Design Portfolio was an interesting challenge. I was appointed to help bring the digital team’s internal work into the 21st century, introducing CI/CD, disaster recovery and High Availability setups for their clients.",
       "company": {
         "name": "Design Portfolio",
         "url": "https://www.design-portfolio.co.uk",
@@ -406,7 +412,7 @@
       "startDate": "2016-02-01",
       "endDate": "2016-07-20",
       "location": "Shoreditch, London, UK",
-      "description": "Working as the Digital Tech Lead at BD, my role was a diverse and challenging one. I was involved with projects at every point from conception through to final delivery, managing a team of multi-skill, full stack developers, prioritising workload and training.",
+      "description": "Working as the Digital Tech Lead at BD, my role was a diverse and challenging one. I was involved with projects at every point from conception through to final delivery, managing a team of multi-skill, full stack developers, prioritising workload and training across a spread of different technologies including PHP, Node, Android, iOS and Unity.",
       "company": {
         "name": "BD Network",
         "url": "http://thisisbd.com",
@@ -440,7 +446,7 @@
       "startDate": "2015-04-20",
       "endDate": "2016-01-29",
       "location": "Shoreditch, London, UK",
-      "description": "Working as interim Tech Lead for the digital team within BD, I was responsible for delivering a wide array of projects for their diverse client base. Everything from NFC powered promotions to augmented reality applications, single page websites to PHP and Ruby driven web apps.",
+      "description": "Working as interim Tech Lead for the digital team within BD, I was responsible for delivering a wide array of projects for their diverse client base. Everything from NFC powered promotions to augmented reality applications, single page websites to PHP and Ruby driven web apps. I managed a team of developers, ensuring they are given the most appropriate and productive tasks. Alongside this I mentored a digital intern, balancing the business need against our responsibility to provide training and long term benefit during their time at the company.",
       "company": {
         "name": "BD Network",
         "url": "http://thisisbd.com",
@@ -466,7 +472,7 @@
       "startDate": "2014-10-20",
       "endDate": "2015-04-17",
       "location": "Kings Cross, London, UK",
-      "description": "As a Full Stack Ruby on Rails developer at Springer Nature I was responsible for everything from Unix server administration and monitoring, to writing front end JavaScript and everything in-between.",
+      "description": "As a Full Stack Ruby on Rails developer at Macmillan I was responsible for everything from Unix server administration and monitoring, to writing front end JavaScript and everything in-between. Working on a RESTFUL API, I practiced Continuous Deployment as part of an Agile Scrum team and managed our servers and applications using a combination of Puppet, Jenkins and Webistrano. We tracked errors and performance using Nagios, Graphite and Airbrake, tying it all together with Dashing and Grafana for live monitoring across our server and application.",
       "company": {
         "name": "Springer Nature",
         "url": "https://www.springernature.com/gp",
