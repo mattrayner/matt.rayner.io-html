@@ -100,6 +100,14 @@ img, object, embed {
   &.extra-small {
     width: rem-calc(54px);
     height: rem-calc(54px);
+
+    &.overlay {
+      position: absolute;
+      margin-top: rem-calc(66px);
+      margin-left: rem-calc(-66px);
+      margin-right: 0;
+      border: 1px solid $primary-color-faded;
+    }
   }
 }
 

@@ -6,10 +6,14 @@ mixin roleMedia(role, includeDescription, includeSkills)
         .media-object-section.hide-for-small-only
             a(href=role.company.url, target="_blank", rel='noopener')
                 img.company-avatar.rounded-image(src=baseUrl + 'assets/images/employment/' + role.company.twitter + '.jpg', alt=role.company.name + ' avatar')
+                if role.contract
+                    img.company-avatar.contract-bubble.extra-small.rounded-image.overlay(src=baseUrl + 'assets/images/employment/RaynerDigital.jpg', alt='This role was a contract role under Rayner Digital.')
         .media-object-section
             h4= role.title
             h5
                 a(href=role.company.url, target="_blank", rel='noopener')= role.company.name
+                if role.contract
+                    span  (via #[a(href="https://rayner.digital", target="_blank", rel="noopener") Rayner Digital])
 
             - momentDateFormat = 'Do MMM YYYY'
             - momentDateTimeFormat = 'YYYY-MM-DD'

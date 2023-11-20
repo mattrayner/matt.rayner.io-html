@@ -287,10 +287,42 @@
   ],
   "roles": [
     {
+      "title": "Senior Software Engineer",
+      "startDate": "2023-10-01",
+      "location": "Remote",
+      "contract": true,
+      "company": {
+        "name": "Vorwerk",
+        "url": "https://www.vorwerk.com",
+        "twitter": "vorwerk_gruppe"
+      },
+      "skills": [
+        "Elixir",
+        "Ruby",
+        "Amazon Web Services",
+        "Stakeholder Management"
+      ]
+    },
+    {
+      "title": "Director",
+      "startDate": "2023-02-10",
+      "location": "Remote",
+      "contract": false,
+      "hiddenFromSummary": true,
+      "description": "Rayner Digital provides development resourcing to clients large and small across the UK and Europe.",
+      "company": {
+        "name": "Rayner Digital",
+        "url": "https://rayner.digital",
+        "twitter": "RaynerDigital"
+      }
+    },
+    {
       "title": "Digital Technical Lead EMEA",
       "startDate": "2021-11-03",
+      "endDate": "2023-10-01",
       "location": "Remote",
-      "description": "Working with regional delivery teams and external partners across EMEA, I am responsible for delivering digital products including mobile order, third party delivery (Deliveroo, Uber Eats, Just Eat, etc) and digital menu boards using event driven, serverless technologies on AWS.",
+      "contract": false,
+      "description": "Working with regional delivery teams and external partners across EMEA, I was responsible for delivering digital products including mobile order, third party delivery (Deliveroo, Uber Eats, Just Eat, etc), kiosks and digital menu boards using event driven, serverless technologies on AWS.",
       "company": {
         "name": "Subway",
         "url": "https://subway.com",
@@ -309,6 +341,7 @@
       "endDate": "2021-11-02",
       "shiftEnd": 2,
       "location": "Remote",
+      "contract": false,
       "description": "Following the absorption of my previous role at BGL into Compare the Market (a subsidiary), I continued to focus on the delivery of open banking capabilities into the organisation with Elixir. My role also focused on IaC with Terraform.",
       "company": {
         "name": "Compare the Market",
@@ -334,6 +367,7 @@
       "startDate": "2019-02-18",
       "endDate": "2019-11-01",
       "location": "Remote",
+      "contract": false,
       "description": "As Technical Lead at BGL Group, I primarily worked on bringing Open Banking capabilities to the organisation, including delivering multiple APIs written in combinations Ruby and Elixir, as well as an administration portal in Elm. My responsibilities included designing and implementing the project’s PCI compliant infrastructure in AWS with IaC via Terraform.",
       "company": {
         "name": "BGL Group",
@@ -364,6 +398,7 @@
       "startDate": "2017-01-09",
       "endDate": "2019-02-15",
       "location": "Westminster, London, UK",
+      "contract": false,
       "description": "Working as Lead Backend Developer for the Parliamentary Digital Service, my focus was on the delivery of new data-driven websites and APIs for the Houses of Parliament. Whilst working here I created a Node, Ruby and Go architecture deployed to AWS using a combination of Terraform and Go.CD that allowed Parliament to deliver a high performance, open and accessible experience for users across the world.",
       "company": {
         "name": "Parliamentary Digital Service",
@@ -390,6 +425,7 @@
       "startDate": "2016-07-25",
       "endDate": "2017-01-06",
       "location": "Canary Wharf, London, UK",
+      "contract": false,
       "description": "Working as Tech Lead for Design Portfolio was an interesting challenge. I was appointed to help bring the digital team’s internal work into the 21st century, introducing CI/CD, disaster recovery and High Availability setups for their clients.",
       "company": {
         "name": "Design Portfolio",
@@ -412,6 +448,7 @@
       "startDate": "2016-02-01",
       "endDate": "2016-07-20",
       "location": "Shoreditch, London, UK",
+      "contract": false,
       "description": "Working as the Digital Tech Lead at BD, my role was a diverse and challenging one. I was involved with projects at every point from conception through to final delivery, managing a team of multi-skill, full stack developers, prioritising workload and training across a spread of different technologies including PHP, Node, Android, iOS and Unity.",
       "company": {
         "name": "BD Network",
@@ -446,6 +483,7 @@
       "startDate": "2015-04-20",
       "endDate": "2016-01-29",
       "location": "Shoreditch, London, UK",
+      "contract": false,
       "description": "Working as interim Tech Lead for the digital team within BD, I was responsible for delivering a wide array of projects for their diverse client base. Everything from NFC powered promotions to augmented reality applications, single page websites to PHP and Ruby driven web apps. I managed a team of developers, ensuring they are given the most appropriate and productive tasks. Alongside this I mentored a digital intern, balancing the business need against our responsibility to provide training and long term benefit during their time at the company.",
       "company": {
         "name": "BD Network",
@@ -472,6 +510,7 @@
       "startDate": "2014-10-20",
       "endDate": "2015-04-17",
       "location": "Kings Cross, London, UK",
+      "contract": false,
       "description": "As a Full Stack Ruby on Rails developer at Macmillan I was responsible for everything from Unix server administration and monitoring, to writing front end JavaScript and everything in-between. Working on a RESTFUL API, I practiced Continuous Deployment as part of an Agile Scrum team and managed our servers and applications using a combination of Puppet, Jenkins and Webistrano. We tracked errors and performance using Nagios, Graphite and Airbrake, tying it all together with Dashing and Grafana for live monitoring across our server and application.",
       "company": {
         "name": "Springer Nature",
@@ -491,6 +530,7 @@
       "startDate": "2014-01-18",
       "endDate": "2014-10-17",
       "location": "Shoreditch, London, UK",
+      "contract": false,
       "description": "I worked as a Full Stack Ruby on Rails developer for BCSG, creating a new international SaaS cloud app designed to make starting, running, and managing a small business a piece of cake!",
       "company": {
         "name": "Business Centric Services Group (BCSG)",
@@ -517,6 +557,7 @@
       "startDate": "2013-11-25",
       "endDate": "2014-01-18",
       "location": "Shoreditch, London, UK",
+      "contract": false,
       "description": "As a web developer, my focus was largely on improving on the front end and back end technologies used within some of BCSG’s legacy projects as well as working on a new platform that the business could use to grow.",
       "company": {
         "name": "Business Centric Services Group (BCSG)",
@@ -538,6 +579,7 @@
       "startDate": "2012-08-19",
       "endDate": "2013-11-22",
       "location": "Canterbury, UK",
+      "contract": false,
       "description": "In this role I primarily used HTML, CSS, JavaScript and JQuery to rebuild an existing website using best practices at the time.",
       "company": {
         "name": "Kent Union",

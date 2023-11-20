@@ -64,7 +64,7 @@ paths = {
         out: paths.raw.dist+'js/'
     },
     scss: {
-        in:  paths.raw.scss+'**/*.scss',
+        in:  paths.raw.scss+'*.scss',
         out: paths.raw.scss+paths.raw.build
     },
     css: {
@@ -193,7 +193,7 @@ function watch() {
         // proxy: "yourlocal.dev"
     });
     gulp.watch(paths.scss.in, assets);
-    gulp.watch(paths.pugs.in, html);
+    gulp.watch(paths.pugs.in, html, assets);
     gulp.watch(paths.coffee.in, assets);
     gulp.watch(paths.html, reload);
 }
