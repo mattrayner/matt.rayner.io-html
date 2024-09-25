@@ -297,10 +297,13 @@
         "twitter": "vorwerk_gruppe"
       },
       "skills": [
-        "Elixir",
-        "Ruby",
         "Amazon Web Services",
-        "Stakeholder Management"
+        "Elixir",
+        "Go",
+        "Heroku",
+        "Ruby",
+        "Stakeholder Management",
+        "Terraform"
       ]
     },
     {
